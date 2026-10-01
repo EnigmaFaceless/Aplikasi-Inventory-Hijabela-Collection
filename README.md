@@ -101,7 +101,7 @@ Berikut informasi kontribusi setiap anggota kelompok:
 
 ---
 
-## 🛠️ Teknologi yang Digunakan
+## 💻 Teknologi yang Digunakan
 
 - **Java**
 - **NetBeans**
