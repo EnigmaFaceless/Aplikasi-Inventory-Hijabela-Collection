@@ -7,6 +7,7 @@ Tugas Kelompok Semester 2
 - **Kelompok:** 6
 - **Prodi:** Sistem Informasi
 - **Mata Kuliah:** Pemrograman Lanjutan
+- **Angkatan:** Tahun 2025
 - **IDE:** NetBeans
 - **Bahasa Pemrograman:** Java
 
