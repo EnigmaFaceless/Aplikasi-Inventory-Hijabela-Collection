@@ -50,6 +50,8 @@ Berikut informasi kontribusi setiap anggota kelompok:
   - Pengaturan Akun (Sedang dalam Proses Pengembangan)
   - Logout
 
+**Link GitHub : ** https://github.com/EnigmaFaceless
+
 ---
 
 ### 2. Aulia Asmarani
@@ -64,6 +66,8 @@ Berikut informasi kontribusi setiap anggota kelompok:
   - PanelLaporan.java
 - Membuat class `koneksi.java` yang berisi kode untuk menghubungkan aplikasi ke Database.
 
+**Link GitHub : ** https://github.com/auliaasmarani
+
 ---
 
 ### 3. Achmad Khusnul Yakin 
@@ -73,6 +77,8 @@ Berikut informasi kontribusi setiap anggota kelompok:
 - Membuat Desain FrameLogin.java
 - Melakukan coding pada fitur Login.
 
+**Link GitHub : ** https://github.com/DigiVora
+
 ---
 
 ### 4. M. Tijani Waffa Haqiqi
@@ -80,6 +86,8 @@ Berikut informasi kontribusi setiap anggota kelompok:
 **Kontribusi:**
 - Membuat Desain ERD menggunakan Draw.io.
 - Melakukan pengujian aplikasi.
+
+**Link GitHub : ** https://github.com/waffahaqiqi-arch
 
 ---
 
@@ -89,6 +97,8 @@ Berikut informasi kontribusi setiap anggota kelompok:
 - Membuat Desain Relasi Tabel menggunakan Draw.io.
 - Melakukan pengujian aplikasi.
 
+**Link GitHub : ** https://github.com/Ftony-hub
+
 ---
 
 ### 6. Muhammad Atho'ilL Hakim
@@ -96,12 +106,16 @@ Berikut informasi kontribusi setiap anggota kelompok:
 **Kontribusi:**
 - Melakukan pengujian aplikasi.
 
+**Link GitHub : ** https://github.com/hakimathoil2-dev
+
 ---
 
 ### 7. Raihan Chayin
 
 **Kontribusi:**
 - Melakukan pengujian aplikasi.
+
+**Link GitHub : ** https://github.com/raihanchayin36-coder
 
 ---
 
