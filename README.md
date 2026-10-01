@@ -33,10 +33,10 @@ Berikut informasi kontribusi setiap anggota kelompok:
 - Membuat Rancangan Database ERD dan Relasi Tabel.
 - Membuat Database di XAMPP dengan nama `aplikasi_hijabella_collection`.
 - Membuat Desain Implementasi:
-  - Panel Barang Masuk
-  - Panel Data Produk
-  - Panel About2
-  - Panel Pengaturan Akun (Setting)
+  - PanelBarangMasuk.java
+  - PanelDataProduk.java
+  - PanelAbout2.java
+  - pengaturanAkun.java (Setting)
 - Melakukan coding pada fitur:
   - Dashboard
   - Barang Masuk
@@ -52,13 +52,13 @@ Berikut informasi kontribusi setiap anggota kelompok:
 ### 2. Aulia Asmarani
 
 **Kontribusi:**
-- Membuat Desain UI/UX di Canva.
+- Membuat Desain UI/UX Aplikasi Hijabella Collection di Canva.
 - Membuat Desain Implementasi:
-  - Frame Dashboard
-  - Panel Dashboard
-  - Panel Barang Keluar
-  - Panel Data Supplier
-  - Panel Laporan
+  - FrameDashboard.java
+  - PanelDashboard.java
+  - PanelBarangKeluar.java
+  - PanelDataSupplier.java
+  - PanelLaporan.java
 - Membuat class `koneksi.java` yang berisi kode untuk menghubungkan aplikasi ke Database.
 
 ---
@@ -66,8 +66,8 @@ Berikut informasi kontribusi setiap anggota kelompok:
 ### 3. Achmad Khusnul Yakin 
 
 **Kontribusi:**
-- Membuat Desain Panel Login.
-- Membuat Desain Frame Login.
+- Membuat Desain PanelLogin.java
+- Membuat Desain FrameLogin.java
 - Melakukan coding pada fitur Login.
 
 ---
