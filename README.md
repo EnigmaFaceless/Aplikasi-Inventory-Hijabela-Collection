@@ -50,7 +50,7 @@ Berikut informasi kontribusi setiap anggota kelompok:
   - Pengaturan Akun (Sedang dalam Proses Pengembangan)
   - Logout
 
-**Link GitHub : ** https://github.com/EnigmaFaceless
+**Link GitHub :** https://github.com/EnigmaFaceless
 
 ---
 
@@ -66,7 +66,7 @@ Berikut informasi kontribusi setiap anggota kelompok:
   - PanelLaporan.java
 - Membuat class `koneksi.java` yang berisi kode untuk menghubungkan aplikasi ke Database.
 
-**Link GitHub : ** https://github.com/auliaasmarani
+**Link GitHub :** https://github.com/auliaasmarani
 
 ---
 
@@ -77,7 +77,7 @@ Berikut informasi kontribusi setiap anggota kelompok:
 - Membuat Desain FrameLogin.java
 - Melakukan coding pada fitur Login.
 
-**Link GitHub : ** https://github.com/DigiVora
+**Link GitHub :** https://github.com/DigiVora
 
 ---
 
@@ -87,7 +87,7 @@ Berikut informasi kontribusi setiap anggota kelompok:
 - Membuat Desain ERD menggunakan Draw.io.
 - Melakukan pengujian aplikasi.
 
-**Link GitHub : ** https://github.com/waffahaqiqi-arch
+**Link GitHub :** https://github.com/waffahaqiqi-arch
 
 ---
 
@@ -97,7 +97,7 @@ Berikut informasi kontribusi setiap anggota kelompok:
 - Membuat Desain Relasi Tabel menggunakan Draw.io.
 - Melakukan pengujian aplikasi.
 
-**Link GitHub : ** https://github.com/Ftony-hub
+**Link GitHub :** https://github.com/Ftony-hub
 
 ---
 
@@ -106,7 +106,7 @@ Berikut informasi kontribusi setiap anggota kelompok:
 **Kontribusi:**
 - Melakukan pengujian aplikasi.
 
-**Link GitHub : ** https://github.com/hakimathoil2-dev
+**Link GitHub :** https://github.com/hakimathoil2-dev
 
 ---
 
@@ -115,7 +115,7 @@ Berikut informasi kontribusi setiap anggota kelompok:
 **Kontribusi:**
 - Melakukan pengujian aplikasi.
 
-**Link GitHub : ** https://github.com/raihanchayin36-coder
+**Link GitHub :** https://github.com/raihanchayin36-coder
 
 ---
 
