@@ -3,18 +3,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package about;
+import Auth.FrameAuth;
 import com.formdev.flatlaf.FlatLightLaf;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import java.awt.CardLayout;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
+
 
 /**
  *
- * @author USERR
+ * @author Eka
  */
 public class FrameDashbord extends javax.swing.JFrame {
     
@@ -29,9 +29,17 @@ private CardLayout cardLayout;
     }
     void inisiasiPanel() throws SQLException{
         cardLayout = cardLayout = (CardLayout)panelContent.getLayout();
-        panelContent.add(new PanelBarangKeluar(), "about");
-        panelContent.add(new PanelAbout(), "barangKeluar");
-        panelContent.add(new PanelAbout(), "dataSupplier");
+        panelContent.add(new PanelDashboard(), "dashboard");
+        panelContent.add(new panelAbout2(), "about");
+        panelContent.add(new PanelBarangMasuk(), "barangMasuk");
+        panelContent.add(new PanelBarangKeluar(), "barangKeluar");
+        panelContent.add(new PanelDataProduk(), "dataProduk");
+        panelContent.add(new PanelDataSupplier(), "dataSupplier");
+        panelContent.add(new PanelLaporan(), "laporan");
+        panelContent.add(new pengaturanAkun(), "pengaturanAkun");
+       
+        
+      
         
         panelContent.revalidate();
         panelContent.repaint();
@@ -47,35 +55,36 @@ private CardLayout cardLayout;
     private void initComponents() {
 
         panelSidbar = new javax.swing.JPanel();
-        btnAbout = new javax.swing.JButton();
+        btnDashboard = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnDataProduk = new javax.swing.JButton();
         btnDataSupplier = new javax.swing.JButton();
         btnBarangMasuk = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        btnBarangKeluar = new javax.swing.JButton();
+        btnLaporan = new javax.swing.JButton();
+        btnSetting = new javax.swing.JButton();
+        btnAbout = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         panelContent = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 51, 255));
+        setPreferredSize(new java.awt.Dimension(1200, 2000));
 
         panelSidbar.setBackground(new java.awt.Color(96, 60, 17));
         panelSidbar.setPreferredSize(new java.awt.Dimension(250, 400));
 
-        btnAbout.setBackground(new java.awt.Color(96, 60, 17));
-        btnAbout.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        btnAbout.setForeground(new java.awt.Color(201, 160, 160));
-        btnAbout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/about/img/icons8-home-25.png"))); // NOI18N
-        btnAbout.setText("Dashboard");
-        btnAbout.setBorderPainted(false);
-        btnAbout.setFocusPainted(false);
-        btnAbout.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        btnAbout.setIconTextGap(5);
-        btnAbout.addActionListener(this::btnAboutActionPerformed);
+        btnDashboard.setBackground(new java.awt.Color(96, 60, 17));
+        btnDashboard.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btnDashboard.setForeground(new java.awt.Color(201, 160, 160));
+        btnDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/about/img/icons8-home-25.png"))); // NOI18N
+        btnDashboard.setText("Dashboard");
+        btnDashboard.setBorderPainted(false);
+        btnDashboard.setFocusPainted(false);
+        btnDashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        btnDashboard.setIconTextGap(5);
+        btnDashboard.addActionListener(this::btnDashboardActionPerformed);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/about/img/logo baru (2).png"))); // NOI18N
 
@@ -87,6 +96,7 @@ private CardLayout cardLayout;
         btnDataProduk.setBorderPainted(false);
         btnDataProduk.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         btnDataProduk.setIconTextGap(10);
+        btnDataProduk.addActionListener(this::btnDataProdukActionPerformed);
 
         btnDataSupplier.setBackground(new java.awt.Color(96, 60, 17));
         btnDataSupplier.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -102,49 +112,51 @@ private CardLayout cardLayout;
         btnBarangMasuk.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         btnBarangMasuk.setForeground(new java.awt.Color(201, 160, 160));
         btnBarangMasuk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/about/img/icons8-delivery-box-20.png"))); // NOI18N
-        btnBarangMasuk.setText("Brang Masuk");
+        btnBarangMasuk.setText("Barang Masuk");
         btnBarangMasuk.setBorderPainted(false);
         btnBarangMasuk.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         btnBarangMasuk.setIconTextGap(10);
         btnBarangMasuk.addActionListener(this::btnBarangMasukActionPerformed);
 
-        jButton5.setBackground(new java.awt.Color(96, 60, 17));
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(201, 160, 160));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/about/img/icons8-return-20.png"))); // NOI18N
-        jButton5.setText("Brang Keluar");
-        jButton5.setBorderPainted(false);
-        jButton5.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        jButton5.setIconTextGap(10);
-        jButton5.addActionListener(this::jButton5ActionPerformed);
+        btnBarangKeluar.setBackground(new java.awt.Color(96, 60, 17));
+        btnBarangKeluar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btnBarangKeluar.setForeground(new java.awt.Color(201, 160, 160));
+        btnBarangKeluar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/about/img/icons8-return-20.png"))); // NOI18N
+        btnBarangKeluar.setText("Barang Keluar");
+        btnBarangKeluar.setBorderPainted(false);
+        btnBarangKeluar.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        btnBarangKeluar.setIconTextGap(10);
+        btnBarangKeluar.addActionListener(this::btnBarangKeluarActionPerformed);
 
-        jButton6.setBackground(new java.awt.Color(96, 60, 17));
-        jButton6.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(201, 160, 160));
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/about/img/icons8-report-20.png"))); // NOI18N
-        jButton6.setText("Laporan");
-        jButton6.setBorderPainted(false);
-        jButton6.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        jButton6.setIconTextGap(10);
+        btnLaporan.setBackground(new java.awt.Color(96, 60, 17));
+        btnLaporan.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btnLaporan.setForeground(new java.awt.Color(201, 160, 160));
+        btnLaporan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/about/img/icons8-report-20.png"))); // NOI18N
+        btnLaporan.setText("Laporan");
+        btnLaporan.setBorderPainted(false);
+        btnLaporan.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        btnLaporan.setIconTextGap(10);
+        btnLaporan.addActionListener(this::btnLaporanActionPerformed);
 
-        jButton7.setBackground(new java.awt.Color(96, 60, 17));
-        jButton7.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(201, 160, 160));
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/about/img/icons8-setting-20.png"))); // NOI18N
-        jButton7.setText("Setting");
-        jButton7.setBorderPainted(false);
-        jButton7.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        jButton7.setIconTextGap(10);
+        btnSetting.setBackground(new java.awt.Color(96, 60, 17));
+        btnSetting.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btnSetting.setForeground(new java.awt.Color(201, 160, 160));
+        btnSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/about/img/icons8-setting-20.png"))); // NOI18N
+        btnSetting.setText("Setting");
+        btnSetting.setBorderPainted(false);
+        btnSetting.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        btnSetting.setIconTextGap(10);
+        btnSetting.addActionListener(this::btnSettingActionPerformed);
 
-        jButton8.setBackground(new java.awt.Color(96, 60, 17));
-        jButton8.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(201, 160, 160));
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/about/img/icons8-about-20 (1).png"))); // NOI18N
-        jButton8.setText("About");
-        jButton8.setBorderPainted(false);
-        jButton8.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        jButton8.setIconTextGap(10);
-        jButton8.addActionListener(this::jButton8ActionPerformed);
+        btnAbout.setBackground(new java.awt.Color(96, 60, 17));
+        btnAbout.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btnAbout.setForeground(new java.awt.Color(201, 160, 160));
+        btnAbout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/about/img/icons8-about-20 (1).png"))); // NOI18N
+        btnAbout.setText("About");
+        btnAbout.setBorderPainted(false);
+        btnAbout.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        btnAbout.setIconTextGap(10);
+        btnAbout.addActionListener(this::btnAboutActionPerformed);
 
         jButton9.setBackground(new java.awt.Color(96, 60, 17));
         jButton9.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -165,8 +177,8 @@ private CardLayout cardLayout;
             .addGroup(panelSidbarLayout.createSequentialGroup()
                 .addGroup(panelSidbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelSidbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jButton6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnLaporan, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnBarangKeluar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelSidbarLayout.createSequentialGroup()
                             .addGap(45, 45, 45)
                             .addComponent(jLabel1))
@@ -179,19 +191,19 @@ private CardLayout cardLayout;
                 .addGroup(panelSidbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelSidbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jButton9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAbout, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnDataProduk, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
-                        .addComponent(jButton7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAbout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnSetting, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnDashboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(btnDataSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
         panelSidbarLayout.setVerticalGroup(
             panelSidbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSidbarLayout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAbout)
+                .addComponent(btnDashboard)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3)
@@ -201,16 +213,16 @@ private CardLayout cardLayout;
                 .addGap(0, 0, 0)
                 .addComponent(btnBarangMasuk)
                 .addGap(0, 0, 0)
-                .addComponent(jButton5)
+                .addComponent(btnBarangKeluar)
                 .addGap(0, 0, 0)
-                .addComponent(jButton6)
+                .addComponent(btnLaporan)
                 .addGap(0, 0, 0)
-                .addComponent(jButton7)
+                .addComponent(btnSetting)
                 .addGap(0, 0, 0)
-                .addComponent(jButton8)
+                .addComponent(btnAbout)
                 .addGap(0, 0, 0)
                 .addComponent(jButton9)
-                .addContainerGap(201, Short.MAX_VALUE))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
 
         getContentPane().add(panelSidbar, java.awt.BorderLayout.LINE_START);
@@ -224,20 +236,36 @@ private CardLayout cardLayout;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
+         int pilihan = JOptionPane.showConfirmDialog(
+                null,
+                 "Apakah anda yakin ingin keluar", 
+                 "Konfirmasi",
+                 JOptionPane.YES_NO_OPTION);
+       switch (pilihan){
+           case JOptionPane.YES_OPTION:
+               dispose();
+               new FrameAuth().setVisible(true);
+               case JOptionPane.NO_OPTION:
+               break;
+               default:
+                   break;
+    }
     }//GEN-LAST:event_jButton9ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
 
     private void btnAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAboutActionPerformed
         // TODO add your handling code here:
         cardLayout.show(panelContent, "about");
+        
     }//GEN-LAST:event_btnAboutActionPerformed
+
+    private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed
+        // TODO add your handling code here:
+        cardLayout.show(panelContent, "dashboard");
+    }//GEN-LAST:event_btnDashboardActionPerformed
 
     private void btnBarangMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBarangMasukActionPerformed
         // TODO add your handling code here:
+        cardLayout.show(panelContent, "barangMasuk");
     }//GEN-LAST:event_btnBarangMasukActionPerformed
 
     private void btnDataSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDataSupplierActionPerformed
@@ -245,9 +273,26 @@ private CardLayout cardLayout;
         cardLayout.show(panelContent, "dataSupplier");
     }//GEN-LAST:event_btnDataSupplierActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnBarangKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBarangKeluarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+        cardLayout.show(panelContent, "barangKeluar");
+    }//GEN-LAST:event_btnBarangKeluarActionPerformed
+
+    private void btnDataProdukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDataProdukActionPerformed
+        // TODO add your handling code here:
+        cardLayout.show(panelContent, "dataProduk");
+        
+    }//GEN-LAST:event_btnDataProdukActionPerformed
+
+    private void btnLaporanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaporanActionPerformed
+        // TODO add your handling code here:
+        cardLayout.show(panelContent, "laporan");
+    }//GEN-LAST:event_btnLaporanActionPerformed
+
+    private void btnSettingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingActionPerformed
+        // TODO add your handling code here:
+        cardLayout.show(panelContent, "pengaturanAkun");
+    }//GEN-LAST:event_btnSettingActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,13 +324,13 @@ private CardLayout cardLayout;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAbout;
+    private javax.swing.JButton btnBarangKeluar;
     private javax.swing.JButton btnBarangMasuk;
+    private javax.swing.JButton btnDashboard;
     private javax.swing.JButton btnDataProduk;
     private javax.swing.JButton btnDataSupplier;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
+    private javax.swing.JButton btnLaporan;
+    private javax.swing.JButton btnSetting;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;

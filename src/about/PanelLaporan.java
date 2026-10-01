@@ -4,6 +4,15 @@
  */
 package about;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import java.text.SimpleDateFormat;
+import java.sql.PreparedStatement;
+
 /**
  *
  * @author USERR
@@ -15,6 +24,102 @@ public class PanelLaporan extends javax.swing.JPanel {
      */
     public PanelLaporan() {
         initComponents();
+        isiJumlahDataLaporan();
+        LoadtabelLaporan();
+        
+    }
+    
+    private void isiJumlahDataLaporan(){
+            try {
+                Connection conn = koneksi.konek();
+                
+                String sqlProduk = "SELECT COUNT(*) AS jumlah FROM produk";
+                Statement psProduk = conn.createStatement();
+                ResultSet rsProduk = psProduk.executeQuery(sqlProduk);
+                
+                if (rsProduk.next()) {
+                    int jumlah = rsProduk.getInt("jumlah");
+                    jJumlahProduk.setText(String.valueOf(jumlah));
+                }
+                
+                String sqlPembelian = "SELECT COUNT(*) AS jumlah FROM pembelian";
+                Statement psPembelian = conn.createStatement();
+                ResultSet rsPembelian = psPembelian.executeQuery(sqlPembelian);
+                if (rsPembelian.next()) {
+                    int jumlah = rsPembelian.getInt("jumlah");
+                    jJumlahPembelian.setText(String.valueOf(jumlah));
+                }
+                
+                String sqlPenjualan = "SELECT COUNT(*) AS jumlah FROM penjualan";
+                Statement psPenjualan = conn.createStatement();
+                ResultSet rsPenjualan = psPenjualan.executeQuery(sqlPenjualan);
+                if (rsPenjualan.next()) {
+                    int jumlah = rsPenjualan.getInt("jumlah");
+                    jJumlahPenjualan.setText(String.valueOf(jumlah));
+                }
+                
+                String sql = "SELECT COUNT(*) AS jumlah FROM produk WHERE stok <=10";
+                Statement ps = conn.createStatement();
+                ResultSet rs = ps.executeQuery(sql);
+                if (rs.next()) {
+                    int jumlah = rs.getInt("jumlah");
+                    tStokMenipis.setText(String.valueOf(jumlah));
+                }
+            } catch (SQLException e) {
+                System.out.println("Gagal Mengambil Data");
+            }
+        }
+    
+    
+    void LoadtabelLaporan(){
+        DefaultTableModel model = new DefaultTableModel();
+       
+        model.addColumn("No");
+        model.addColumn("Kode Barang");
+        model.addColumn("Nama Barang");
+        model.addColumn("Stok Awal");
+        model.addColumn("Barang Masuk");
+        model.addColumn("Barang Keluar");
+        model.addColumn("Stok Akhir");
+        
+        
+        
+        String sql = "SELECT p.id_produk, p.nama_produk, p.stok, IFNULL(m.total_masuk, 0) AS barang_masuk, IFNULL(k.total_keluar, 0) AS barang_keluar,"
+                + "p.stok + IFNULL(m.total_masuk, 0) - IFNULL (k.total_keluar, 0) AS stok_akhir FROM produk p LEFT JOIN(SELECT id_produk, SUM(jumlah_masuk) AS total_masuk FROM pembelian GROUP BY id_produk) m ON p.id_produk = m.id_produk"
+                + " LEFT JOIN (SELECT id_produk, SUM(jumlah_keluar) AS total_keluar FROM penjualan GROUP BY id_produk) k ON p.id_produk = k.id_produk";
+        
+        try {
+            Connection conn = koneksi.konek();
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+                   int no = 1;
+            while (rs.next()) {
+                String kodeProduk = rs.getString("id_produk");
+                String namaBarang = rs.getString("nama_produk");
+                String stokAwal = rs.getString("stok");
+                String barangMasuk= rs.getString("barang_masuk");
+                String barangKeluar= rs.getString("barang_keluar");
+                int stokAkhir = rs.getInt("stok_akhir");
+                
+                String status;
+                
+                if(stokAkhir <= 10){
+                    status = "Hampr Habis!";
+                }else{
+                   status = "Aman";
+                }
+
+                Object[] baris = {no++, kodeProduk, namaBarang, stokAwal,barangMasuk, barangKeluar, stokAkhir };
+
+                model.addRow(baris);
+            }
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(null, "Gagal Mengambil Data!");
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            e.printStackTrace();
+        }
+        tblLaporan.setModel(model);
     }
 
     /**
@@ -30,37 +135,31 @@ public class PanelLaporan extends javax.swing.JPanel {
         jPanel5 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jJumlahProduk = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        jJumlahPembelian = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        jJumlahPenjualan = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
+        tStokMenipis = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jLabel21 = new javax.swing.JLabel();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblLaporan = new javax.swing.JTable();
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -88,10 +187,6 @@ public class PanelLaporan extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Laporan");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/about/img/icons8-vertical-line-20.png"))); // NOI18N
-
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/about/img/icons8-doorbell-29.png"))); // NOI18N
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -99,28 +194,19 @@ public class PanelLaporan extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 596, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel12)
-                .addGap(29, 29, 29))
+                .addContainerGap(686, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         jPanel5.add(jPanel2, java.awt.BorderLayout.PAGE_START);
 
         jPanel1.setBackground(new java.awt.Color(250, 245, 241));
-        jPanel1.setLayout(new java.awt.GridLayout());
+        jPanel1.setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel4.setBackground(new java.awt.Color(96, 60, 17));
         jPanel4.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(250, 245, 241), 5), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 208, 185))));
@@ -128,13 +214,13 @@ public class PanelLaporan extends javax.swing.JPanel {
         jPanel4.setPreferredSize(new java.awt.Dimension(204, 88));
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Icon");
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/about/img/icons8-shopping-bag-50 (1).png"))); // NOI18N
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Total Produk");
 
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("jLabel6");
+        jJumlahProduk.setForeground(new java.awt.Color(255, 255, 255));
+        jJumlahProduk.setText("jLabel6");
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Jumlah Seluruh Item Fisik");
@@ -148,26 +234,25 @@ public class PanelLaporan extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
                         .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
+                        .addGap(21, 21, 21)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(jLabel6))
+                                .addComponent(jJumlahProduk))
                             .addComponent(jLabel5))))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jJumlahProduk))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addContainerGap())
         );
@@ -179,13 +264,13 @@ public class PanelLaporan extends javax.swing.JPanel {
         jPanel10.setMinimumSize(new java.awt.Dimension(204, 88));
         jPanel10.setPreferredSize(new java.awt.Dimension(204, 88));
 
-        jLabel8.setText("Icon");
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/about/img/icons8-download-64.png"))); // NOI18N
 
         jLabel9.setText("Barang Masuk");
 
-        jLabel10.setText("jLabel10");
+        jJumlahPembelian.setText("jLabel10");
 
-        jLabel11.setText("Total Brang Masuk");
+        jLabel11.setText("Total Barang Masuk");
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -194,27 +279,28 @@ public class PanelLaporan extends javax.swing.JPanel {
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
                     .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
-                            .addComponent(jLabel10))))
-                .addContainerGap(72, Short.MAX_VALUE))
+                            .addComponent(jJumlahPembelian)))
+                    .addComponent(jLabel11))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel9)
-                .addGap(11, 11, 11)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel9)
+                        .addGap(11, 11, 11)
+                        .addComponent(jJumlahPembelian))
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel11)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel10);
@@ -224,11 +310,11 @@ public class PanelLaporan extends javax.swing.JPanel {
         jPanel11.setMinimumSize(new java.awt.Dimension(204, 88));
         jPanel11.setPreferredSize(new java.awt.Dimension(204, 88));
 
-        jLabel13.setText("Icon");
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/about/img/icons8-upload-64.png"))); // NOI18N
 
         jLabel14.setText("Barang Keluar");
 
-        jLabel15.setText("jLabel15");
+        jJumlahPenjualan.setText("jLabel15");
 
         jLabel16.setText("Total Penjualan");
 
@@ -239,25 +325,26 @@ public class PanelLaporan extends javax.swing.JPanel {
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel16)
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(27, 27, 27)
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel14)
-                            .addComponent(jLabel15))))
-                .addContainerGap(78, Short.MAX_VALUE))
+                            .addComponent(jJumlahPenjualan)))
+                    .addComponent(jLabel16))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel14)
-                .addGap(9, 9, 9)
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel15))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jJumlahPenjualan))
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel16)
                 .addContainerGap())
         );
@@ -268,11 +355,11 @@ public class PanelLaporan extends javax.swing.JPanel {
         jPanel12.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(250, 245, 241), 5), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 208, 185))));
         jPanel12.setMinimumSize(new java.awt.Dimension(204, 88));
 
-        jLabel17.setText("Icon");
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/about/img/icons8-warning-50.png"))); // NOI18N
 
         jLabel18.setText("Stok Menipis");
 
-        jLabel19.setText("jLabel19");
+        tStokMenipis.setText("jLabel19");
 
         jLabel20.setText("Produk Hampir Habis");
 
@@ -281,30 +368,28 @@ public class PanelLaporan extends javax.swing.JPanel {
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(6, 6, 6)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel20)
                     .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel18))
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabel17)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel19))
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel20)))
-                .addContainerGap(72, Short.MAX_VALUE))
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tStokMenipis)
+                            .addComponent(jLabel18))))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addContainerGap(9, Short.MAX_VALUE)
-                .addComponent(jLabel18)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17)
-                    .addComponent(jLabel19))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tStokMenipis))
+                    .addComponent(jLabel17))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel20)
                 .addGap(8, 8, 8))
         );
@@ -324,46 +409,20 @@ public class PanelLaporan extends javax.swing.JPanel {
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setPreferredSize(new java.awt.Dimension(868, 58));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel3.setText("Tanggal Awal");
-
-        jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel21.setText("Tanggal Akhir");
-
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(112, 112, 112)
-                        .addComponent(jLabel21))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(398, Short.MAX_VALUE))
+            .addGap(0, 768, Short.MAX_VALUE)
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel21))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 58, Short.MAX_VALUE)
         );
 
         jPanel6.add(jPanel8, java.awt.BorderLayout.PAGE_START);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblLaporan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -374,7 +433,7 @@ public class PanelLaporan extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblLaporan);
 
         jPanel6.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
@@ -383,26 +442,19 @@ public class PanelLaporan extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private javax.swing.JLabel jJumlahPembelian;
+    private javax.swing.JLabel jJumlahPenjualan;
+    private javax.swing.JLabel jJumlahProduk;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -417,6 +469,7 @@ public class PanelLaporan extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel tStokMenipis;
+    private javax.swing.JTable tblLaporan;
     // End of variables declaration//GEN-END:variables
 }

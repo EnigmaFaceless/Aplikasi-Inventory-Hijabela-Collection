@@ -8,6 +8,17 @@ import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,6 +31,108 @@ public class PanelBarangKeluar extends javax.swing.JPanel {
      */
     public PanelBarangKeluar() {
         initComponents();
+        loadTabelBarangKeluar();
+        reset();
+        jumlahBarangKeluar();
+        totalPenjualanHariIni();
+        loadComboBarang();
+    }
+    
+    
+    
+     void loadTabelBarangKeluar(){
+        DefaultTableModel model = new DefaultTableModel();
+        
+        model.addColumn("ID penjualan");
+        model.addColumn("Kode Barang");
+        model.addColumn("Nama Barang");
+        model.addColumn("Jumlah");
+        model.addColumn("Tanggal");
+        model.addColumn("Keterangan");
+        
+        String sql = "SELECT * FROM penjualan";
+        
+        try {
+            Connection conn = koneksi.konek();
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+                String idPenjualan = rs.getString("id_penjualan");
+                String kodeProduk = rs.getString("id_produk");
+                String namaProduk = rs.getString("nama_produk");
+                String jumlah = rs.getString("jumlah_keluar");
+                String tanggal = rs.getString("tanggal_penjualan");
+                String keterangan = rs.getString("keterangan");
+
+                Object[] baris = {idPenjualan, kodeProduk, namaProduk, jumlah, tanggal, keterangan};
+
+                model.addRow(baris);
+            }
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(null, "Gagal Mengambil Data!");
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            e.printStackTrace();
+        }
+        tblBarangKeluar.setModel(model);
+        
+    }
+     
+     
+     void reset(){
+         tJumlahKeluar.setText(null);
+         tKeterangan.setText(null);
+         tIdPenjualan.setText(null);
+         tNamaProduk.setText(null);
+         
+     }
+     
+     void jumlahBarangKeluar(){
+          
+             try {
+             Connection conn = koneksi.konek();
+             String sqlPenjualan = "SELECT COALESCE(SUM(jumlah_keluar),0) AS total_barang " + "FROM penjualan "+"WHERE tanggal_penjualan = CURDATE()";
+             Statement psPenjualan = conn.createStatement();
+             ResultSet rsPenjualan = psPenjualan.executeQuery(sqlPenjualan);
+             if (rsPenjualan.next()) {
+                 int jumlah = rsPenjualan.getInt("total_barang");
+                 jJumlahPenjualan.setText(String.valueOf(jumlah));
+             }
+         } catch (SQLException sQLException) {
+         }
+     }
+     
+     void totalPenjualanHariIni(){
+       
+         try {
+             Connection conn = koneksi.konek();
+             String sqlPenjualan = "SELECT COUNT(*) AS total_penjualan " + "FROM penjualan " + "WHERE tanggal_penjualan = CURDATE()";
+             Statement psPenjualan = conn.createStatement();
+             ResultSet rsPenjualan = psPenjualan.executeQuery(sqlPenjualan);
+             if (rsPenjualan.next()) {
+                 int jumlah = rsPenjualan.getInt("total_penjualan");
+                 jTotalPenjualan.setText(String.valueOf(jumlah));
+             }
+         } catch (SQLException sQLException) {
+         }
+     }
+     
+     
+         void loadComboBarang(){
+        try {
+            String sql = "SELECT id_produk FROM produk";
+            Connection conn = koneksi.konek();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            cKodeProduk.removeAllItems();
+            while (rs.next()) {
+             cKodeProduk.addItem(rs.getString("id_produk"));
+            }
+        } catch (SQLException e) {
+       
+                    
+        }
     }
    protected void paintCommponent(java.awt.Graphics g){
        g.setColor(getBackground());
@@ -38,40 +151,42 @@ public class PanelBarangKeluar extends javax.swing.JPanel {
         jPanel10 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jJumlahPenjualan = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
+        jTotalPenjualan = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tblBarangKeluar = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        tIdPenjualan = new javax.swing.JTextField();
+        btnTambah = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        tNamaProduk = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        tJumlahKeluar = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        tTanggal = new com.toedter.calendar.JDateChooser();
         jLabel21 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        tKeterangan = new javax.swing.JTextField();
+        btnEdit = new javax.swing.JButton();
+        btnHapus = new javax.swing.JButton();
+        btnReset = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        cKodeProduk = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(250, 245, 241));
         setLayout(new java.awt.BorderLayout());
@@ -87,10 +202,6 @@ public class PanelBarangKeluar extends javax.swing.JPanel {
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setText("Barang Keluar");
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/about/img/icons8-vertical-line-20.png"))); // NOI18N
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/about/img/icons8-doorbell-29.png"))); // NOI18N
-
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
@@ -98,21 +209,12 @@ public class PanelBarangKeluar extends javax.swing.JPanel {
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 726, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addGap(28, 28, 28)
-                .addComponent(jLabel4)
-                .addGap(34, 34, 34))
+                .addContainerGap(831, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -134,10 +236,10 @@ public class PanelBarangKeluar extends javax.swing.JPanel {
         jLabel5.setText("Total Barang Keluar Hari Ini");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 420, -1));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(96, 60, 17));
-        jLabel6.setText("jLabel6");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 50, -1));
+        jJumlahPenjualan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jJumlahPenjualan.setForeground(new java.awt.Color(96, 60, 17));
+        jJumlahPenjualan.setText("jLabel6");
+        jPanel2.add(jJumlahPenjualan, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 50, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jLabel7.setText("Total Item");
@@ -150,11 +252,11 @@ public class PanelBarangKeluar extends javax.swing.JPanel {
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(96, 60, 17));
-        jLabel22.setText("Total Penjualan Hari Ini");
+        jLabel22.setText("Total Penjualan");
 
-        jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(96, 60, 17));
-        jLabel23.setText("jLabel6");
+        jTotalPenjualan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jTotalPenjualan.setForeground(new java.awt.Color(96, 60, 17));
+        jTotalPenjualan.setText("jLabel6");
 
         jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jLabel24.setText("Total Penjualan");
@@ -171,9 +273,9 @@ public class PanelBarangKeluar extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel22)
-                    .addComponent(jLabel23)
+                    .addComponent(jTotalPenjualan)
                     .addComponent(jLabel24))
-                .addContainerGap(292, Short.MAX_VALUE))
+                .addContainerGap(327, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,7 +283,7 @@ public class PanelBarangKeluar extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel22)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel23)
+                .addComponent(jTotalPenjualan)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel24)
                 .addGap(12, 12, 12))
@@ -204,7 +306,7 @@ public class PanelBarangKeluar extends javax.swing.JPanel {
 
         jPanel13.setLayout(new java.awt.CardLayout());
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblBarangKeluar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -215,7 +317,12 @@ public class PanelBarangKeluar extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        tblBarangKeluar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblBarangKeluarMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tblBarangKeluar);
 
         jPanel13.add(jScrollPane2, "card2");
 
@@ -237,41 +344,64 @@ public class PanelBarangKeluar extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(96, 60, 17));
-        jLabel3.setText("Kode barang");
+        jLabel3.setText("ID Penjualan");
 
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 208, 185), 2));
+        tIdPenjualan.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 208, 185), 2));
 
-        jButton1.setBackground(new java.awt.Color(96, 60, 17));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Simpan");
-
-        jButton2.setText("Reset");
-        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 208, 185), 2));
+        btnTambah.setBackground(new java.awt.Color(96, 60, 17));
+        btnTambah.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnTambah.setForeground(new java.awt.Color(255, 255, 255));
+        btnTambah.setText("Tambah");
+        btnTambah.addActionListener(this::btnTambahActionPerformed);
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(96, 60, 17));
         jLabel18.setText("Nama Barang");
 
-        jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 208, 185), 2));
+        tNamaProduk.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 208, 185), 2));
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(96, 60, 17));
         jLabel19.setText("Jumlah Keluar");
 
-        jTextField6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 208, 185), 2));
+        tJumlahKeluar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 208, 185), 2));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(96, 60, 17));
         jLabel20.setText("Tanggal");
 
-        jDateChooser2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 208, 185), 2));
+        tTanggal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 208, 185), 2));
+        tTanggal.setDateFormatString("yyyy MM dd");
+        tTanggal.setMaxSelectableDate(new java.util.Date(253370743281000L));
 
         jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(96, 60, 17));
         jLabel21.setText("Keterangan");
 
-        jTextField7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 208, 185), 2));
+        tKeterangan.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 208, 185), 2));
+
+        btnEdit.setBackground(new java.awt.Color(96, 60, 17));
+        btnEdit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnEdit.setForeground(new java.awt.Color(255, 255, 255));
+        btnEdit.setText("Edit");
+        btnEdit.addActionListener(this::btnEditActionPerformed);
+
+        btnHapus.setBackground(new java.awt.Color(96, 60, 17));
+        btnHapus.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnHapus.setForeground(new java.awt.Color(255, 255, 255));
+        btnHapus.setText("Hapus");
+        btnHapus.addActionListener(this::btnHapusActionPerformed);
+
+        btnReset.setBackground(new java.awt.Color(255, 255, 255));
+        btnReset.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnReset.setText("Reset");
+        btnReset.addActionListener(this::btnResetActionPerformed);
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(96, 60, 17));
+        jLabel11.setText("Kode barang");
+
+        cKodeProduk.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -280,15 +410,12 @@ public class PanelBarangKeluar extends javax.swing.JPanel {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tIdPenjualan, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jSeparator1)
-                    .addComponent(jTextField1)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE))
-                    .addComponent(jTextField5)
-                    .addComponent(jTextField6)
-                    .addComponent(jTextField7)
+                    .addComponent(tNamaProduk)
+                    .addComponent(tJumlahKeluar)
+                    .addComponent(tKeterangan)
+                    .addComponent(tTanggal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
@@ -296,9 +423,18 @@ public class PanelBarangKeluar extends javax.swing.JPanel {
                             .addComponent(jLabel18)
                             .addComponent(jLabel19)
                             .addComponent(jLabel20)
-                            .addComponent(jLabel21))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel21)
+                            .addComponent(jLabel11)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(btnTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 46, Short.MAX_VALUE))
+                    .addComponent(cKodeProduk, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
@@ -311,28 +447,34 @@ public class PanelBarangKeluar extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tIdPenjualan, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel11)
+                .addGap(12, 12, 12)
+                .addComponent(cKodeProduk, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel18)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tNamaProduk, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tJumlahKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel20)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(tTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel21)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tKeterangan, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
 
         jPanel4.add(jPanel7);
@@ -340,13 +482,142 @@ public class PanelBarangKeluar extends javax.swing.JPanel {
         add(jPanel4, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
+        // TODO add your handling code here:
+        String idPenjualan = tIdPenjualan.getText();
+              String kodeProduk = cKodeProduk.getSelectedItem().toString();
+        String namaProduk = tNamaProduk.getText();
+        java.util.Date tanggalDate = tTanggal.getDate();
+        java.sql.Date tanggal = new java.sql.Date(tanggalDate.getTime());
+        String jumlah = tJumlahKeluar.getText();
+        String keterangan = tKeterangan.getText();
+       
+        String sql = "INSERT INTO penjualan(id_penjualan, tanggal_penjualan, id_produk, nama_produk, jumlah_keluar, keterangan) VALUES (?,?,?,?,?,?)";
+        try {
+            Connection conn = koneksi.konek();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, idPenjualan);
+            ps.setDate(2, tanggal);
+            ps.setString(3,kodeProduk);
+            ps.setString(4, namaProduk);
+            ps.setString(5 , jumlah);
+            ps.setString(6, keterangan);
+            
+            
+            ps.execute();
+            JOptionPane.showMessageDialog(null, "Data berhasil disimpan!");
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(null, "Data gagal disimpan!");
+        } catch (HeadlessException headlessException) {
+      
+        }
+        loadTabelBarangKeluar();
+    reset();
+
+    }//GEN-LAST:event_btnTambahActionPerformed
+
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        // TODO add your handling code here:
+         String idPenjualan = tIdPenjualan.getText();
+         String kodeProduk = cKodeProduk.getSelectedItem().toString();
+        String namaProduk = tNamaProduk.getText();
+         java.util.Date tanggalDate = tTanggal.getDate();
+        
+        if (tanggalDate == null){
+    JOptionPane.showMessageDialog(null, "Tanggal Belum Dipilih!");
+    return;
+    
+}
+        String tanggalDateString = new SimpleDateFormat("yyyy-MM-dd").format(tanggalDate);
+        String jumlah = tJumlahKeluar.getText();
+        String keterangan = tKeterangan.getText();
+       
+        
+        String sql = "UPDATE penjualan SET id_produk=?, nama_produk=?, tanggal_penjualan=?, jumlah_keluar=?, keterangan=? WHERE id_penjualan=?";
+        try {
+            Connection conn = koneksi.konek();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, kodeProduk);
+            ps.setString(2, namaProduk);
+            java.sql.Date tanggal = new java.sql.Date(tanggalDate.getTime());
+            ps.setDate(3, tanggal);
+            ps.setInt(4, Integer.parseInt(jumlah));
+            ps.setString(5, keterangan);
+            ps.setString(6, idPenjualan);
+            
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Data berhasil diubah!");
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(null, "Data gagal diubah!");
+        } catch (HeadlessException headlessException) {
+        }
+        
+        loadTabelBarangKeluar();
+        reset();
+    }//GEN-LAST:event_btnEditActionPerformed
+
+    private void tblBarangKeluarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBarangKeluarMouseClicked
+        // TODO add your handling code here:
+             int barisYangDipilih = tblBarangKeluar.rowAtPoint(evt.getPoint());
+        
+        String idPenjualan = tblBarangKeluar.getValueAt(barisYangDipilih, 0).toString();
+        String kodeProduk = tblBarangKeluar.getValueAt(barisYangDipilih, 1).toString();
+        String tanggal = tblBarangKeluar.getValueAt(barisYangDipilih, 4).toString();
+        String namaProduk = tblBarangKeluar.getValueAt(barisYangDipilih, 2).toString();
+        String jumlah  = tblBarangKeluar.getValueAt(barisYangDipilih, 3).toString();
+        String keterangan = tblBarangKeluar.getValueAt(barisYangDipilih, 5).toString();
+        
+        tIdPenjualan.setText(idPenjualan);
+        cKodeProduk.setSelectedItem(kodeProduk);
+        tIdPenjualan.setEditable(false);
+        tNamaProduk.setText(namaProduk);
+        
+        try {
+            java.util.Date date = new SimpleDateFormat("yyy-MM-dd").parse(tanggal);
+            tTanggal.setDate(date);
+        } catch (ParseException parseException) {
+        }
+        tJumlahKeluar.setText(jumlah);
+        tKeterangan.setText(keterangan);
+    }//GEN-LAST:event_tblBarangKeluarMouseClicked
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        // TODO add your handling code here:
+          reset();
+    }//GEN-LAST:event_btnResetActionPerformed
+
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
+        // TODO add your handling code here:
+                   String idPenjualan = tIdPenjualan.getText();
+
+        String sql = "DELETE FROM penjualan WHERE id_penjualan=?";
+        try {
+            Connection conn = koneksi.konek();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, idPenjualan);
+            
+            ps.execute();
+            JOptionPane.showMessageDialog(null, "Data berhasil dihapus!");
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(null, "Data gagal dihapus!");
+        } catch (HeadlessException headlessException) {
+        }
+        
+        loadTabelBarangKeluar();
+        reset();
+    }//GEN-LAST:event_btnHapusActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private javax.swing.JButton btnEdit;
+    private javax.swing.JButton btnHapus;
+    private javax.swing.JButton btnReset;
+    private javax.swing.JButton btnTambah;
+    private javax.swing.JComboBox<String> cKodeProduk;
+    private javax.swing.JLabel jJumlahPenjualan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -354,15 +625,11 @@ public class PanelBarangKeluar extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -374,10 +641,12 @@ public class PanelBarangKeluar extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JLabel jTotalPenjualan;
+    private javax.swing.JTextField tIdPenjualan;
+    private javax.swing.JTextField tJumlahKeluar;
+    private javax.swing.JTextField tKeterangan;
+    private javax.swing.JTextField tNamaProduk;
+    private com.toedter.calendar.JDateChooser tTanggal;
+    private javax.swing.JTable tblBarangKeluar;
     // End of variables declaration//GEN-END:variables
 }

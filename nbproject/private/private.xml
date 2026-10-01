@@ -2,24 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/USERR/OneDrive/Dokumen/NetBeansProjects/about/src/about/About.java</file>
-            <file>file:/C:/Users/USERR/OneDrive/Dokumen/NetBeansProjects/about/src/about/PanelBarngKeluar.java</file>
-            <file>file:/C:/Users/USERR/OneDrive/Dokumen/NetBeansProjects/about/src/about/PanelAbout.java</file>
-            <file>file:/C:/Users/USERR/OneDrive/Dokumen/NetBeansProjects/about/src/about/koneksi.java</file>
-            <file>file:/C:/Users/USERR/OneDrive/Dokumen/NetBeansProjects/about/src/about/FrameDashbord.java</file>
-            <file>file:/C:/Users/USERR/OneDrive/Dokumen/NetBeansProjects/about/src/about/PanelDataProduk.java</file>
-            <file>file:/C:/Users/USERR/OneDrive/Dokumen/NetBeansProjects/about/src/about/PanelDataSupplier.java</file>
-            <file>file:/C:/Users/USERR/OneDrive/Dokumen/NetBeansProjects/about/src/about/PanelBarangMasuk.java</file>
-            <file>file:/C:/Users/USERR/OneDrive/Dokumen/NetBeansProjects/about/src/about/PanelLaporan.java</file>
-            <file>file:/C:/Users/USERR/OneDrive/Dokumen/NetBeansProjects/about/src/about/PanelDashboard.java</file>
-            <file>file:/C:/Users/USERR/OneDrive/Dokumen/NetBeansProjects/about/src/about/Auth/FrameAuth.java</file>
-            <file>file:/C:/Users/USERR/OneDrive/Dokumen/NetBeansProjects/about/src/about/Auth/SubAuth/PanelForgotPassword.java</file>
-            <file>file:/C:/Users/USERR/OneDrive/Dokumen/NetBeansProjects/about/src/about/Auth/SubAuth/PanelLogin.java</file>
-            <file>file:/C:/Users/USERR/OneDrive/Dokumen/NetBeansProjects/about/src/about/Auth/SubAuth/PanelMaintenance.java</file>
-            <file>file:/C:/Users/USERR/OneDrive/Dokumen/NetBeansProjects/about/src/about/Auth/SubAuth/PanelRegister.java</file>
-            <file>file:/C:/Users/USERR/OneDrive/Dokumen/NetBeansProjects/about/src/about/Auth/SubAuth/PanelUbahEmail.java</file>
-            <file>file:/C:/Users/USERR/OneDrive/Dokumen/NetBeansProjects/about/src/about/panelNotifikasi.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
