@@ -4,7 +4,7 @@
  */
 package Screens.Loading;
 
-import App.AppTheme;
+import bahan1.AppTheme;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 

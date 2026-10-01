@@ -1,0 +1,659 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ */
+package FiturAplikasi;
+
+import FiturAplikasi.koneksi;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
+/**
+ *
+ * @author achmad_khusnul_yakin
+ */
+public class PanelDataProduk1 extends javax.swing.JPanel {
+
+    /**
+     * Creates new form PanelDataProduk
+     */
+    public PanelDataProduk1() {
+        initComponents();
+    }
+    
+     void loadTabelDataProduk(){
+        DefaultTableModel model = new DefaultTableModel();
+        
+        model.addColumn("Kode Produk");
+        model.addColumn("Nama Barang");
+        model.addColumn("Kategori");
+        model.addColumn("Supplier");
+        model.addColumn("Harga Beli");
+        model.addColumn("Harga Jual");
+        model.addColumn("Status");
+        model.addColumn("Minimal Stok");
+        model.addColumn("Stok");
+        model.addColumn("Keterangan");
+        
+        String sql = "SELECT p.id_produk, p.nama_produk, " + "k.nama_kategori, " + "s.nama_supplier, " + "p.harga_beli, " + "p.harga_jual, " + "p.status, " + "p.satuan, " + "p.minimal_stok, "+ "p.stok, "+ "p.keterangan " + "FROM produk p " + "LEFT JOIN kategori k ON p.id_kategori = k.id_kategori " + "LEFT JOIN supplier s ON p.id_supplier = s.id_supplier" ;
+        
+        try {
+            Connection conn = koneksi.konek();
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+                String kodeProduk = rs.getString("id_produk");
+                String namaBarang = rs.getString("nama_produk");
+                String namaKategori = rs.getString("nama_kategori");
+                String namaSupplier = rs.getString("nama_supplier");
+                String hargaBeli = rs.getString("harga_beli");
+                String hargaJual = rs.getString("harga_jual");
+                String status = rs.getString("status");
+                String satuan = rs.getString("satuan");
+                String minimalStok = rs.getString("minimal_stok");
+                String stok = rs.getString("stok");
+                String keterangan = rs.getString("keterangan");
+                
+
+                Object[] baris = {kodeProduk, namaBarang, namaKategori, namaSupplier, hargaBeli, hargaJual, status, satuan, minimalStok, stok, keterangan};
+
+                model.addRow(baris);
+            }
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(null, "Gagal Mengambil Data!");
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            e.printStackTrace();
+        }
+        tblDataProduk2.setModel(model);
+        
+    }
+ 
+ void reset (){
+     tCariProduk.setText(null);
+     tHargaBeli.setText(null);
+     tKodeProduk.setText(null);
+     tNamaProduk.setText(null);
+     tStok.setText(null);
+     tHargaJual.setText(null);
+     tKategori.setText(null);
+     tSatuan.setText(null);
+ }
+ 
+ void cariProduk(String Keyword){
+      DefaultTableModel model = new DefaultTableModel();
+      String keyword = tCariProduk.getText();
+      
+        model.addColumn("Kode Produk");
+        model.addColumn("Nama Barang");
+        model.addColumn("Kategori");
+        model.addColumn("Supplier");
+        model.addColumn("Harga Beli");
+        model.addColumn("Harga Jual");
+        model.addColumn("Status");
+        model.addColumn("Minimal Stok");
+        model.addColumn("Stok");
+        model.addColumn("Keterangan");
+        
+        
+        String sql = "SELECT p.id_produk, p.nama_produk, " + "k.nama_kategori, " + "s.nama_supplier, " + "p.harga_beli, " + "p.harga_jual, " + "p.status, " + "p.satuan, " + "p.minimal_stok, "+ "p.stok, "+ "p.keterangan " + "FROM produk p " + "LEFT JOIN kategori k ON p.id_kategori = k.id_kategori " + "LEFT JOIN supplier s ON p.id_supplier = s.id_supplier WHERE id_produk LIKE ? OR nama_produk LIKE ?";
+       try {
+         Connection conn = koneksi.konek();
+         PreparedStatement ps = conn.prepareStatement(sql);
+         ps.setString(1, "%" + keyword + "%");
+         ps.setString(2, "%" + keyword + "%");
+         ResultSet rs = ps.executeQuery();
+         while(rs.next()){
+         model.addRow(new Object[]{
+             rs.getString("id_produk"),
+             rs.getString("nama_produk"),
+             rs.getString("stok"),
+             rs.getString("harga")
+         });
+         }
+         tblDataProduk2.setModel(model);
+     } catch (SQLException sQLException) {
+     }
+       
+ }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jLabel13 = new javax.swing.JLabel();
+        panelUtama = new javax.swing.JPanel();
+        panelHeader = new javax.swing.JPanel();
+        panelTitle = new javax.swing.JPanel();
+        lblTitle = new javax.swing.JLabel();
+        panelAction = new javax.swing.JPanel();
+        lblGarisPemisah = new javax.swing.JLabel();
+        lblNotification = new javax.swing.JLabel();
+        panelBody = new javax.swing.JPanel();
+        panelForm = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        tKodeProduk = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        tNamaProduk = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        tKategori = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        cSupplier = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        tHargaBeli = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        jPanel6 = new javax.swing.JPanel();
+        tHargaJual = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
+        cStatus = new javax.swing.JLabel();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        tSatuan = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
+        cMinimalStok = new javax.swing.JLabel();
+        jTextField10 = new javax.swing.JTextField();
+        tStok = new javax.swing.JLabel();
+        jTextField9 = new javax.swing.JTextField();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tKeterangan = new javax.swing.JTextArea();
+        panelButton = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        tCariProduk = new javax.swing.JTextField();
+        btnTambah = new javax.swing.JButton();
+        btnUbah = new javax.swing.JButton();
+        btnHapus = new javax.swing.JButton();
+        btnReset = new javax.swing.JButton();
+        panelTable = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        cKategori = new javax.swing.JComboBox<>();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblDataProduk2 = new javax.swing.JTable();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel13 = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jPanel14 = new javax.swing.JPanel();
+        jPanel16 = new javax.swing.JPanel();
+        jPanel15 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        jPanel17 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+
+        jLabel13.setText("jLabel13");
+
+        setLayout(new java.awt.BorderLayout());
+
+        panelUtama.setPreferredSize(new java.awt.Dimension(1000, 650));
+        panelUtama.setLayout(new java.awt.BorderLayout());
+
+        panelHeader.setMinimumSize(new java.awt.Dimension(304, 77));
+        panelHeader.setLayout(new javax.swing.BoxLayout(panelHeader, javax.swing.BoxLayout.LINE_AXIS));
+
+        panelTitle.setBackground(new java.awt.Color(255, 255, 255));
+        panelTitle.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 20, 15));
+
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
+        lblTitle.setText("Data Produk");
+        panelTitle.add(lblTitle);
+
+        panelHeader.add(panelTitle);
+
+        panelAction.setBackground(new java.awt.Color(255, 255, 255));
+        panelAction.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 20, 10, 20));
+        panelAction.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT, 20, 15));
+
+        lblGarisPemisah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Komponen/Garis Pemisah V2.png"))); // NOI18N
+        panelAction.add(lblGarisPemisah);
+
+        lblNotification.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Icon/icons8-notification-20.png"))); // NOI18N
+        panelAction.add(lblNotification);
+
+        panelHeader.add(panelAction);
+
+        panelUtama.add(panelHeader, java.awt.BorderLayout.NORTH);
+
+        panelBody.setLayout(new javax.swing.BoxLayout(panelBody, javax.swing.BoxLayout.Y_AXIS));
+
+        panelForm.setPreferredSize(new java.awt.Dimension(1000, 230));
+        panelForm.setLayout(new java.awt.BorderLayout());
+
+        jPanel5.setBorder(javax.swing.BorderFactory.createEmptyBorder(8, 15, 8, 15));
+        jPanel5.setPreferredSize(new java.awt.Dimension(485, 138));
+        jPanel5.setLayout(new java.awt.GridLayout(5, 0, -150, 5));
+
+        tKodeProduk.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tKodeProduk.setText("Kode Produk");
+        jPanel5.add(tKodeProduk);
+
+        jTextField1.setMargin(new java.awt.Insets(5, 6, 5, 6));
+        jPanel5.add(jTextField1);
+
+        tNamaProduk.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tNamaProduk.setText("Nama Produk");
+        jPanel5.add(tNamaProduk);
+        jPanel5.add(jTextField2);
+
+        tKategori.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tKategori.setText("Kategori");
+        jPanel5.add(tKategori);
+        jPanel5.add(jTextField3);
+
+        cSupplier.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cSupplier.setText("Supplier");
+        jPanel5.add(cSupplier);
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Belum ditentukan" }));
+        jPanel5.add(jComboBox2);
+
+        tHargaBeli.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tHargaBeli.setText("Harga Beli");
+        jPanel5.add(tHargaBeli);
+
+        jTextField5.setMinimumSize(new java.awt.Dimension(64, 30));
+        jTextField5.setPreferredSize(new java.awt.Dimension(64, 30));
+        jTextField5.addActionListener(this::jTextField5ActionPerformed);
+        jPanel5.add(jTextField5);
+
+        panelForm.add(jPanel5, java.awt.BorderLayout.WEST);
+
+        jPanel6.setBorder(javax.swing.BorderFactory.createEmptyBorder(8, 15, 8, 15));
+        jPanel6.setLayout(new java.awt.GridLayout(5, 0, -150, 5));
+
+        tHargaJual.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tHargaJual.setText("Harga Jual");
+        jPanel6.add(tHargaJual);
+        jPanel6.add(jTextField6);
+
+        cStatus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cStatus.setText("Status");
+        jPanel6.add(cStatus);
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aktif", "Tidak Aktif" }));
+        jPanel6.add(jComboBox3);
+
+        tSatuan.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tSatuan.setText("Satuan");
+        jPanel6.add(tSatuan);
+
+        jTextField7.setText("Unit");
+        jPanel6.add(jTextField7);
+
+        cMinimalStok.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cMinimalStok.setText("Minimal Stok");
+        jPanel6.add(cMinimalStok);
+
+        jTextField10.setText("0");
+        jPanel6.add(jTextField10);
+
+        tStok.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tStok.setText("Stok");
+        jPanel6.add(tStok);
+        jPanel6.add(jTextField9);
+
+        panelForm.add(jPanel6, java.awt.BorderLayout.CENTER);
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 15));
+        jPanel4.setPreferredSize(new java.awt.Dimension(1000, 85));
+        jPanel4.setLayout(new java.awt.GridLayout(2, 0));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setText("Keterangan");
+        jLabel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel4.add(jLabel1);
+
+        tKeterangan.setColumns(20);
+        tKeterangan.setRows(5);
+        tKeterangan.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(231, 215, 199)));
+        tKeterangan.setMargin(new java.awt.Insets(2, 4, 2, 6));
+        tKeterangan.setPreferredSize(new java.awt.Dimension(240, 84));
+        jScrollPane1.setViewportView(tKeterangan);
+
+        jPanel4.add(jScrollPane1);
+
+        panelForm.add(jPanel4, java.awt.BorderLayout.SOUTH);
+
+        panelBody.add(panelForm);
+
+        panelButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 15, 10, 15));
+        panelButton.setPreferredSize(new java.awt.Dimension(1000, 55));
+        panelButton.setLayout(new java.awt.GridLayout(1, 0, 50, 0));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(231, 215, 199)));
+        jPanel3.setLayout(new java.awt.BorderLayout());
+
+        jLabel12.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Icon/Salinan dari Salinan dari Design UI Hijabella Collection_20260709_142437_0000.png"))); // NOI18N
+        jLabel12.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5));
+        jPanel3.add(jLabel12, java.awt.BorderLayout.WEST);
+
+        tCariProduk.setBorder(null);
+        jPanel3.add(tCariProduk, java.awt.BorderLayout.CENTER);
+
+        panelButton.add(jPanel3);
+
+        btnTambah.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Green"));
+        btnTambah.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnTambah.setForeground(new java.awt.Color(255, 255, 255));
+        btnTambah.setText("Tambah");
+        btnTambah.addActionListener(this::btnTambahActionPerformed);
+        panelButton.add(btnTambah);
+
+        btnUbah.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Yellow"));
+        btnUbah.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnUbah.setForeground(new java.awt.Color(255, 255, 255));
+        btnUbah.setText("Ubah");
+        btnUbah.addActionListener(this::btnUbahActionPerformed);
+        panelButton.add(btnUbah);
+
+        btnHapus.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Red"));
+        btnHapus.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnHapus.setForeground(new java.awt.Color(255, 255, 255));
+        btnHapus.setText("Hapus");
+        btnHapus.addActionListener(this::btnHapusActionPerformed);
+        panelButton.add(btnHapus);
+
+        btnReset.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
+        btnReset.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnReset.setForeground(new java.awt.Color(255, 255, 255));
+        btnReset.setText("Reset");
+        btnReset.addActionListener(this::btnResetActionPerformed);
+        panelButton.add(btnReset);
+
+        panelBody.add(panelButton);
+
+        panelTable.setLayout(new java.awt.BorderLayout());
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 5, 15));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1000, 55));
+        jPanel2.setLayout(new java.awt.GridLayout(1, 0));
+
+        cKategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Semua Kategori", "Pakaian Anak-anak", "Hijab", "Gamis", "Alat Tulis" }));
+        jPanel2.add(cKategori);
+
+        panelTable.add(jPanel2, java.awt.BorderLayout.NORTH);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 10, 15));
+        jPanel1.setLayout(new java.awt.BorderLayout());
+
+        tblDataProduk2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "No", "Kode Produk", "Nama Produk", "Kategori", "Supplier", "Harga Beli", "Harga Jual", "Status", "Satuan", "Minimal Stok", "Stok", "Keterangan"
+            }
+        ));
+        jScrollPane2.setViewportView(tblDataProduk2);
+
+        jPanel1.add(jScrollPane2, java.awt.BorderLayout.CENTER);
+
+        jPanel7.setPreferredSize(new java.awt.Dimension(680, 35));
+        jPanel7.setLayout(new java.awt.BorderLayout());
+
+        jPanel13.setPreferredSize(new java.awt.Dimension(200, 88));
+        jPanel13.setLayout(new java.awt.BorderLayout());
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel18.setText("Menampilkan 1 -");
+        jPanel13.add(jLabel18, java.awt.BorderLayout.CENTER);
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setText("N");
+        jLabel19.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5));
+        jPanel13.add(jLabel19, java.awt.BorderLayout.LINE_END);
+
+        jPanel7.add(jPanel13, java.awt.BorderLayout.WEST);
+
+        jPanel14.setLayout(new java.awt.BorderLayout());
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 620, Short.MAX_VALUE)
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 35, Short.MAX_VALUE)
+        );
+
+        jPanel14.add(jPanel16, java.awt.BorderLayout.CENTER);
+
+        jPanel15.setPreferredSize(new java.awt.Dimension(150, 77));
+        jPanel15.setLayout(new java.awt.GridLayout(1, 3));
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Icon/icons8-back-to-20.png"))); // NOI18N
+        jButton2.setContentAreaFilled(false);
+        jPanel15.add(jButton2);
+
+        jPanel17.setLayout(new java.awt.BorderLayout());
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setText("1");
+        jPanel17.add(jLabel14, java.awt.BorderLayout.CENTER);
+
+        jPanel15.add(jPanel17);
+
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Icon/icons8-next-page-20.png"))); // NOI18N
+        jButton3.setContentAreaFilled(false);
+        jPanel15.add(jButton3);
+
+        jPanel14.add(jPanel15, java.awt.BorderLayout.LINE_END);
+
+        jPanel7.add(jPanel14, java.awt.BorderLayout.CENTER);
+
+        jPanel1.add(jPanel7, java.awt.BorderLayout.SOUTH);
+
+        panelTable.add(jPanel1, java.awt.BorderLayout.CENTER);
+
+        panelBody.add(panelTable);
+
+        panelUtama.add(panelBody, java.awt.BorderLayout.CENTER);
+
+        add(panelUtama, java.awt.BorderLayout.CENTER);
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnResetActionPerformed
+
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnHapusActionPerformed
+
+    private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnUbahActionPerformed
+
+    private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTambahActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnHapus;
+    private javax.swing.JButton btnReset;
+    private javax.swing.JButton btnTambah;
+    private javax.swing.JButton btnUbah;
+    private javax.swing.JComboBox<String> cKategori;
+    private javax.swing.JLabel cMinimalStok;
+    private javax.swing.JLabel cStatus;
+    private javax.swing.JLabel cSupplier;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField9;
+    private javax.swing.JLabel lblGarisPemisah;
+    private javax.swing.JLabel lblNotification;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JPanel panelAction;
+    private javax.swing.JPanel panelBody;
+    private javax.swing.JPanel panelButton;
+    private javax.swing.JPanel panelForm;
+    private javax.swing.JPanel panelHeader;
+    private javax.swing.JPanel panelTable;
+    private javax.swing.JPanel panelTitle;
+    private javax.swing.JPanel panelUtama;
+    private javax.swing.JTextField tCariProduk;
+    private javax.swing.JLabel tHargaBeli;
+    private javax.swing.JLabel tHargaJual;
+    private javax.swing.JLabel tKategori;
+    private javax.swing.JTextArea tKeterangan;
+    private javax.swing.JLabel tKodeProduk;
+    private javax.swing.JLabel tNamaProduk;
+    private javax.swing.JLabel tSatuan;
+    private javax.swing.JLabel tStok;
+    private javax.swing.JTable tblDataProduk2;
+    // End of variables declaration//GEN-END:variables
+}

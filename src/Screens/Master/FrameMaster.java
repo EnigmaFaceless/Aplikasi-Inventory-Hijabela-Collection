@@ -4,18 +4,18 @@
  */
 package Screens.Master;
 
-import App.AppTheme;
+import bahan1.AppTheme;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.BorderFactory;
 import java.awt.CardLayout;
-import Screens.Master.SubMaster.PanelDashboard;
+import bahan2.PanelDashboard;
 import Screens.Master.SubMaster.PanelDataProduk;
-import Screens.Master.SubMaster.PanelDataSupplier;
-import Screens.Master.SubMaster.PanelBarangMasuk;
-import Screens.Master.SubMaster.PanelSetting;
-import Screens.Master.SubMaster.PanelAbout;
+import bahan1.PanelDataSupplier;
+import bahan2.PanelBarangMasuk;
+import bahan2.PanelSetting;
+import bahan2.PanelAbout;
 import javax.swing.JPanel;
 import Screens.Loading.FrameLoading;
 import java.awt.CardLayout;
