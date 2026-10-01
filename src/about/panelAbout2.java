@@ -65,7 +65,7 @@ public class panelAbout2 extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 748, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 778, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -128,7 +128,7 @@ public class panelAbout2 extends javax.swing.JPanel {
         jPanel8.setPreferredSize(new java.awt.Dimension(1300, 1300));
 
         jLabel18.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        jLabel18.setText("<html> <table cellpadding=\"4\"> <tr>     <td width=\"180\">Project Manager </td>     <td>:</td>     <td>Eka Futkhiyana Sari</td> </tr>  </tr> <tr>     <td>UI/UX</td>     <td>:</td>     <td>Aulia Asmarani</td> </tr> <tr>     <td>Front-end </td>     <td>:</td>     <td>Aulia Asmarani, Eka Futkhiyana Sari, Ahcmad Khusnul Yaqin.</td> </tr> <tr>     <td>Java Developer </td>     <td>:</td>     <td>Eka Futkhiyana Sari, Achmad Khusnul Yaqin.</td> </tr> <td>Database Design </td>     <td>:</td>     <td>Wafa & Toni.<tr><td>Database Developer  </td>     <td>:</td>     <td>Eka Futkhiyana Sari</td>  </tr>  </tr> <tr>     <td>Software Tester</td>     <td>:</td>     <td>Wafa, Toni, Atho'il, Raihan.</td> </tr> </table> </html>");
+        jLabel18.setText("<html> <table cellpadding=\"4\"> <tr>     <td width=\"180\">Project Manager </td>     <td>:</td>     <td>Eka (Enigma Faceless)</td> </tr>  </tr> <tr>     <td>UI/UX</td>     <td>:</td>     <td>Aulia Asmarani</td> </tr> <tr>     <td>Front-end  </td>     <td>:</td>     <td>Aulia Asmarani, & Eka (Enigma Faceless)</td> </tr> <tr>     <td>Java Developer (Programmer Aplikasi) </td>     <td>:</td>     <td>Eka (Enigma Faceless).</td> </tr> <td>Database Design (Draw io) </td>     <td>:</td>     <td>Wafa & Toni.<tr><td>Database Developer  </td>     <td>:</td>     <td>Eka (Enigma Faceless)</td>  </tr>  </tr> <tr>     <td>Software Tester</td>     <td>:</td>     <td>Wafa, Toni, Atho'il, Raihan.</td> </tr> </tr>  </tr> <tr>     <td> Fitur Login </td>     <td>:</td>     <td>Yaqin</td> </tr> </table> </html>");
 
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel4.setText("Tim Pengembang :");
@@ -161,7 +161,7 @@ public class panelAbout2 extends javax.swing.JPanel {
         );
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        jLabel3.setText("<html> <table cellpadding=\"4\"> <tr>     <td width=\"180\">Nama Aplikasi</td>     <td>:</td>     <td>Hijabella Collection</td> </tr>  </tr> <tr>     <td>Versi Aplikasi</td>     <td>:</td>     <td>0.0.0.1</td> </tr> <tr>     <td>Dibuat Oleh</td>     <td>:</td>     <td>Tim Kelompok 6 (Pemrograman Lanjutan)</td> </tr> <tr>     <td>Tujuan Dibuat</td>     <td>:</td>     <td>Untuk Tugas Kuliah Membantu UMKM</td> </tr> <tr>     <td>Nama Anggota</td>     <td>:</td>     <td>Eka, Aulia, Yaqin, Toni, Wafa, Atho'il, Raihan.</td> </tr> <td>Link Github</td>     <td>:</td>     <td>https://github.com/EnigmaFaceless/Aplikasi-Inventory-Hijabela-Collection-Versi-Paling-awal-di-Semester-2-</td> </table> </html>");
+        jLabel3.setText("<html> <table cellpadding=\"4\"> <tr>     <td width=\"180\">Nama Aplikasi</td>     <td>:</td>     <td>Hijabella Collection</td> </tr>  </tr> <tr>     <td>Versi Aplikasi</td>     <td>:</td>     <td>0.0.0.1</td> </tr> <tr>     <td>Dibuat Oleh</td>     <td>:</td>     <td>Tim Kelompok 6 (Matkul Pemrograman Lanjutan Semester 2)</td> </tr> <tr>     <td>Tujuan Dibuat</td>     <td>:</td>     <td>Untuk Tugas Kuliah Membantu UMKM</td> </tr> <tr>     <td>Nama Anggota</td>     <td>:</td>     <td>Eka (Enigma Faceless), Aulia Asmarani, Yaqin, Toni, Wafa, Atho'il, Raihan.</td> </tr> <td>Link Github</td>     <td>:</td>     <td>https://github.com/EnigmaFaceless/Aplikasi-Inventory-Hijabela-Collection-Versi-Paling-awal-di-Semester-2-</td> </table> </html>");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -182,7 +182,7 @@ public class panelAbout2 extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
                 .addGap(24, 24, 24))
         );
 

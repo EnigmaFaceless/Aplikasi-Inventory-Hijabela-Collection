@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package about;
-import Auth.FrameAuth;
+import Auth.FrameLogin;
 import com.formdev.flatlaf.FlatLightLaf;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -244,7 +244,7 @@ private CardLayout cardLayout;
        switch (pilihan){
            case JOptionPane.YES_OPTION:
                dispose();
-               new FrameAuth().setVisible(true);
+               new FrameLogin().setVisible(true);
                case JOptionPane.NO_OPTION:
                break;
                default:

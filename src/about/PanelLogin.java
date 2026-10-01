@@ -4,7 +4,7 @@
  */
 package about;
 
-import Auth.FrameAuth;
+import Auth.FrameLogin;
 
 /**
  *
@@ -15,9 +15,9 @@ public class PanelLogin extends javax.swing.JPanel {
     /**
      * Creates new form PanelLogin
      */
-    private FrameAuth frame;
+    private FrameLogin frame;
 
-    public PanelLogin(FrameAuth frame) {
+    public PanelLogin(FrameLogin frame) {
         initComponents();
     }
 

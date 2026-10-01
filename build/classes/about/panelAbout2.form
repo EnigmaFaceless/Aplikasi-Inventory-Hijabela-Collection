@@ -16,7 +16,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="3"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,3,4,0,0,7,-93"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,3,34,0,0,7,-93"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
@@ -49,7 +49,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel2" pref="748" max="32767" attributes="0"/>
+                  <Component id="jLabel2" pref="778" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -208,7 +208,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPanel8" pref="290" max="32767" attributes="0"/>
+                          <Component id="jPanel8" pref="320" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -268,7 +268,7 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Dialog" size="15" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;table cellpadding=&quot;4&quot;&gt; &lt;tr&gt;     &lt;td width=&quot;180&quot;&gt;Project Manager &lt;/td&gt;     &lt;td&gt;:&lt;/td&gt;     &lt;td&gt;Eka Futkhiyana Sari&lt;/td&gt; &lt;/tr&gt;  &lt;/tr&gt; &lt;tr&gt;     &lt;td&gt;UI/UX&lt;/td&gt;     &lt;td&gt;:&lt;/td&gt;     &lt;td&gt;Aulia Asmarani&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt;     &lt;td&gt;Front-end &lt;/td&gt;     &lt;td&gt;:&lt;/td&gt;     &lt;td&gt;Aulia Asmarani, Eka Futkhiyana Sari, Ahcmad Khusnul Yaqin.&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt;     &lt;td&gt;Java Developer &lt;/td&gt;     &lt;td&gt;:&lt;/td&gt;     &lt;td&gt;Eka Futkhiyana Sari, Achmad Khusnul Yaqin.&lt;/td&gt; &lt;/tr&gt; &lt;td&gt;Database Design &lt;/td&gt;     &lt;td&gt;:&lt;/td&gt;     &lt;td&gt;Wafa &amp; Toni.&lt;tr&gt;&lt;td&gt;Database Developer  &lt;/td&gt;     &lt;td&gt;:&lt;/td&gt;     &lt;td&gt;Eka Futkhiyana Sari&lt;/td&gt;  &lt;/tr&gt;  &lt;/tr&gt; &lt;tr&gt;     &lt;td&gt;Software Tester&lt;/td&gt;     &lt;td&gt;:&lt;/td&gt;     &lt;td&gt;Wafa, Toni, Atho&apos;il, Raihan.&lt;/td&gt; &lt;/tr&gt; &lt;/table&gt; &lt;/html&gt;"/>
+                        <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;table cellpadding=&quot;4&quot;&gt; &lt;tr&gt;     &lt;td width=&quot;180&quot;&gt;Project Manager &lt;/td&gt;     &lt;td&gt;:&lt;/td&gt;     &lt;td&gt;Eka (Enigma Faceless)&lt;/td&gt; &lt;/tr&gt;  &lt;/tr&gt; &lt;tr&gt;     &lt;td&gt;UI/UX&lt;/td&gt;     &lt;td&gt;:&lt;/td&gt;     &lt;td&gt;Aulia Asmarani&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt;     &lt;td&gt;Front-end  &lt;/td&gt;     &lt;td&gt;:&lt;/td&gt;     &lt;td&gt;Aulia Asmarani, &amp; Eka (Enigma Faceless)&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt;     &lt;td&gt;Java Developer (Programmer Aplikasi) &lt;/td&gt;     &lt;td&gt;:&lt;/td&gt;     &lt;td&gt;Eka (Enigma Faceless).&lt;/td&gt; &lt;/tr&gt; &lt;td&gt;Database Design (Draw io) &lt;/td&gt;     &lt;td&gt;:&lt;/td&gt;     &lt;td&gt;Wafa &amp; Toni.&lt;tr&gt;&lt;td&gt;Database Developer  &lt;/td&gt;     &lt;td&gt;:&lt;/td&gt;     &lt;td&gt;Eka (Enigma Faceless)&lt;/td&gt;  &lt;/tr&gt;  &lt;/tr&gt; &lt;tr&gt;     &lt;td&gt;Software Tester&lt;/td&gt;     &lt;td&gt;:&lt;/td&gt;     &lt;td&gt;Wafa, Toni, Atho&apos;il, Raihan.&lt;/td&gt; &lt;/tr&gt; &lt;/tr&gt;  &lt;/tr&gt; &lt;tr&gt;     &lt;td&gt; Fitur Login &lt;/td&gt;     &lt;td&gt;:&lt;/td&gt;     &lt;td&gt;Yaqin&lt;/td&gt; &lt;/tr&gt; &lt;/table&gt; &lt;/html&gt;"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel4">
@@ -286,7 +286,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="15" style="0"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;table cellpadding=&quot;4&quot;&gt; &lt;tr&gt;     &lt;td width=&quot;180&quot;&gt;Nama Aplikasi&lt;/td&gt;     &lt;td&gt;:&lt;/td&gt;     &lt;td&gt;Hijabella Collection&lt;/td&gt; &lt;/tr&gt;  &lt;/tr&gt; &lt;tr&gt;     &lt;td&gt;Versi Aplikasi&lt;/td&gt;     &lt;td&gt;:&lt;/td&gt;     &lt;td&gt;0.0.0.1&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt;     &lt;td&gt;Dibuat Oleh&lt;/td&gt;     &lt;td&gt;:&lt;/td&gt;     &lt;td&gt;Tim Kelompok 6 (Pemrograman Lanjutan)&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt;     &lt;td&gt;Tujuan Dibuat&lt;/td&gt;     &lt;td&gt;:&lt;/td&gt;     &lt;td&gt;Untuk Tugas Kuliah Membantu UMKM&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt;     &lt;td&gt;Nama Anggota&lt;/td&gt;     &lt;td&gt;:&lt;/td&gt;     &lt;td&gt;Eka, Aulia, Yaqin, Toni, Wafa, Atho&apos;il, Raihan.&lt;/td&gt; &lt;/tr&gt; &lt;td&gt;Link Github&lt;/td&gt;     &lt;td&gt;:&lt;/td&gt;     &lt;td&gt;https://github.com/EnigmaFaceless/Aplikasi-Inventory-Hijabela-Collection-Versi-Paling-awal-di-Semester-2-&lt;/td&gt; &lt;/table&gt; &lt;/html&gt;"/>
+                    <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;table cellpadding=&quot;4&quot;&gt; &lt;tr&gt;     &lt;td width=&quot;180&quot;&gt;Nama Aplikasi&lt;/td&gt;     &lt;td&gt;:&lt;/td&gt;     &lt;td&gt;Hijabella Collection&lt;/td&gt; &lt;/tr&gt;  &lt;/tr&gt; &lt;tr&gt;     &lt;td&gt;Versi Aplikasi&lt;/td&gt;     &lt;td&gt;:&lt;/td&gt;     &lt;td&gt;0.0.0.1&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt;     &lt;td&gt;Dibuat Oleh&lt;/td&gt;     &lt;td&gt;:&lt;/td&gt;     &lt;td&gt;Tim Kelompok 6 (Matkul Pemrograman Lanjutan Semester 2)&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt;     &lt;td&gt;Tujuan Dibuat&lt;/td&gt;     &lt;td&gt;:&lt;/td&gt;     &lt;td&gt;Untuk Tugas Kuliah Membantu UMKM&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt;     &lt;td&gt;Nama Anggota&lt;/td&gt;     &lt;td&gt;:&lt;/td&gt;     &lt;td&gt;Eka (Enigma Faceless), Aulia Asmarani, Yaqin, Toni, Wafa, Atho&apos;il, Raihan.&lt;/td&gt; &lt;/tr&gt; &lt;td&gt;Link Github&lt;/td&gt;     &lt;td&gt;:&lt;/td&gt;     &lt;td&gt;https://github.com/EnigmaFaceless/Aplikasi-Inventory-Hijabela-Collection-Versi-Paling-awal-di-Semester-2-&lt;/td&gt; &lt;/table&gt; &lt;/html&gt;"/>
                   </Properties>
                 </Component>
               </SubComponents>
