@@ -20,6 +20,8 @@ pada mata kuliah Pemrograman Lanjutan.
 Projek ini bertujuan untuk membantu UMKM yang membutuhkan
 aplikasi untuk mendukung kebutuhan pengelolaan usaha di era digital.
 
+Catatan : Detail commit pada tahap awal proses pembuatan aplikasi masih belum lengkap. Hal ini dikarenakan pada saat proses tersebut kami masih berada di Semester 2 dan belum sepenuhnya menguasai penggunaan Git dan GitHub. Seiring berjalannya waktu, kami mulai mempelajari dan memahami penggunaan Git dan GitHub dengan lebih baik pada Semester 3.
+
 ---
 
 ## 👥 Anggota Kelompok & Pembagian Tugas
@@ -44,7 +46,7 @@ Berikut informasi kontribusi setiap anggota kelompok:
   - Data Produk
   - Data Supplier
   - Laporan
-  - Pengaturan Akun
+  - Pengaturan Akun (Sedang dalam Proses Pengembangan)
   - Logout
 
 ---
