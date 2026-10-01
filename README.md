@@ -3,6 +3,7 @@ Tugas Kelompok Semester 2
 ## Informasi Projek
 
 - **Tema Projek:** Aplikasi Inventory
+- **Nama Aplikasi:** Aplikasi Inventory Hijabela Collection
 - **Kelompok:** 6
 - **Prodi:** Sistem Informasi
 - **Mata Kuliah:** Pemrograman Lanjutan
