@@ -41,14 +41,14 @@ Berikut informasi kontribusi setiap anggota kelompok:
   - PanelAbout2.java
   - pengaturanAkun.java (Setting)
 - Melakukan coding pada fitur:
-  - Dashboard
-  - Barang Masuk
-  - Barang Keluar
-  - Data Produk
-  - Data Supplier
-  - Laporan
+  - Dashboard (PanelDashboard.java)
+  - Barang Masuk (PanelBarangMasuk.java)
+  - Barang Keluar (PanelBarangKeluar.java)
+  - Data Produk (DataProduk.java)
+  - Data Supplier (DataSupplier.java)
+  - Laporan (Laporan.java)
   - Pengaturan Akun (Sedang dalam Proses Pengembangan)
-  - Logout
+  - Logout 
 
 **Link GitHub :** https://github.com/EnigmaFaceless
 
@@ -65,6 +65,8 @@ Berikut informasi kontribusi setiap anggota kelompok:
   - PanelDataSupplier.java
   - PanelLaporan.java
 - Membuat class `koneksi.java` yang berisi kode untuk menghubungkan aplikasi ke Database.
+- - Melakukan coding pada fitur:
+  - Dashboard (FrameDashboard.java)
 
 **Link GitHub :** https://github.com/auliaasmarani
 
@@ -73,9 +75,11 @@ Berikut informasi kontribusi setiap anggota kelompok:
 ### 3. Achmad Khusnul Yakin 
 
 **Kontribusi:**
+- Membuat Analisis Kebutuhan untuk menentukan fitur-fitur aplikasi yang dibutuhkan.
 - Membuat Desain PanelLogin.java
 - Membuat Desain FrameLogin.java
-- Melakukan coding pada fitur Login.
+- Melakukan coding pada fitur :
+- Login (frameLogin.java)
 
 **Link GitHub :** https://github.com/DigiVora
 
