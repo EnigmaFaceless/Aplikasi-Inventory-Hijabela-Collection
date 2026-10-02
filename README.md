@@ -75,6 +75,7 @@ Berikut informasi kontribusi setiap anggota kelompok:
 ### 3. Achmad Khusnul Yakin 
 
 **Kontribusi:**
+- Membuat Analisis Kebutuhan untuk menentukan fitur-fitur aplikasi yang dibutuhkan.
 - Membuat Desain PanelLogin.java
 - Membuat Desain FrameLogin.java
 - Melakukan coding pada fitur :
