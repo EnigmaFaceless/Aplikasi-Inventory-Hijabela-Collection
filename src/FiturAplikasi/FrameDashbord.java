@@ -70,9 +70,10 @@ private CardLayout cardLayout;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 51, 255));
+        setPreferredSize(new java.awt.Dimension(2000, 3000));
 
         panelSidbar.setBackground(new java.awt.Color(96, 60, 17));
-        panelSidbar.setPreferredSize(new java.awt.Dimension(250, 400));
+        panelSidbar.setPreferredSize(new java.awt.Dimension(300, 400));
 
         btnDashboard.setBackground(new java.awt.Color(96, 60, 17));
         btnDashboard.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -195,7 +196,7 @@ private CardLayout cardLayout;
                         .addComponent(btnSetting, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnDashboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(btnDataSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addGap(0, 49, Short.MAX_VALUE))
         );
         panelSidbarLayout.setVerticalGroup(
             panelSidbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
