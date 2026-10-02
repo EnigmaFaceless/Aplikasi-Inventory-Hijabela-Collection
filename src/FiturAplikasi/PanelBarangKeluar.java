@@ -22,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author USERR
+ * @author Eka Melawan ERROR
  */
 public class PanelBarangKeluar extends javax.swing.JPanel {
 

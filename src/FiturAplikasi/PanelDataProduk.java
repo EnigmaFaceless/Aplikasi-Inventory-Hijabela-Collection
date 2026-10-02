@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author USERR
+ * @author Eka Melawan ERROR
  */
 public class PanelDataProduk extends javax.swing.JPanel {
 

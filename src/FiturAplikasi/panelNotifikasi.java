@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
  *
- * @author USERR
+ * @author auliaasmarani
  */
 public class panelNotifikasi extends javax.swing.JPanel {
 

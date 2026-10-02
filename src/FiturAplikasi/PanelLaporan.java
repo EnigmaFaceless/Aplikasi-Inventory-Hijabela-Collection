@@ -15,7 +15,7 @@ import java.sql.PreparedStatement;
 
 /**
  *
- * @author USERR
+ * @author Eka Melawan ERRROR
  */
 public class PanelLaporan extends javax.swing.JPanel {
 

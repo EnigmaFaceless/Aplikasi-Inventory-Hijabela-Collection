@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Eka
+ * @author Eka Melawan ERROR & auliaasmarani
  */
 public class FrameDashbord extends javax.swing.JFrame {
     

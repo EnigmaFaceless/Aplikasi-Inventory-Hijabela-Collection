@@ -8,7 +8,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 /**
  *
- * @author USERR
+ * @author auliaasmarani
  */
 public class koneksi {
     private static Connection mysqlconfig;

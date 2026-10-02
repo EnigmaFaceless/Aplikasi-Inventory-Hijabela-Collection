@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author USERR
+ * @author  Eka Melawan ERROR
  */
 public class PanelBarangMasuk extends javax.swing.JPanel {
 

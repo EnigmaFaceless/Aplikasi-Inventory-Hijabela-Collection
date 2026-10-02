@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
  *
- * @author USERR
+ * @author Eka Melawan ERROR
  */
 public class PanelDataSupplier extends javax.swing.JPanel {
 

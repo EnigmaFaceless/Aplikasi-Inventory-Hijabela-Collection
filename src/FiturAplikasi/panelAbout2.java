@@ -6,7 +6,7 @@ package FiturAplikasi;
 
 /**
  *
- * @author lenovo
+ * @author auliaasmarani
  */
 public class panelAbout2 extends javax.swing.JPanel {
 
