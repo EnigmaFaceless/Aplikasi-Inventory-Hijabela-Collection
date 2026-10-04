@@ -1,6 +1,7 @@
 🏪 Aplikasi Inventory Hijabela Collection
 Aplikasi Inventory Hijabela Collection merupakan aplikasi yang dibuat untuk membantu UMKM Hijabela Collection dalam mengelola persediaan barang secara lebih efektif dan efisien.
 
+---
 
 📖 Deskripsi Projek
 Projek ini dibuat untuk memenuhi tugas kelompok Semester 2 pada mata kuliah Pemrograman Lanjutan.
