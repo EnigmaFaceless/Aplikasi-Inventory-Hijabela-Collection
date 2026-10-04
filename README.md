@@ -33,11 +33,11 @@ pada mata kuliah Pemrograman Lanjutan.
 Projek ini bertujuan untuk membantu UMKM Hijabela Collection yang membutuhkan
 aplikasi Inventory untuk mendukung pengelolaan persediaan barang secara efektif dan efisien.
 
-Foto bersama pemilik UMKM Hijabela Collection : 
-![Login](fotoDenganOwner.JPEG)
+Foto dengan pemilik UMKM Hijabela Collection pada 31 Maret 2026 : 
+![Login](fotoDenganOwner.jpeg)
 
-Foto dengan dosen ketika projek berhasil dibuat di akhir semester 2 :
-![Login](aplikasirilis.JPEG)
+Foto dengan dosen pemrograman lanjutan ketika projek berhasil dibuat di akhir semester 2 :
+![Login](aplikasi rilis.jpeg)
 
 ---
 
