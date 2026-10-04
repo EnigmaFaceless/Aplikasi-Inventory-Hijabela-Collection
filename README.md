@@ -1,4 +1,6 @@
-🏪 Aplikasi Inventory Hijabela Collection merupakan aplikasi yang dibuat untuk membantu UMKM Hijabela Collection dalam mengelola persediaan barang secara lebih efektif dan efisien.
+🏪 Aplikasi Inventory Hijabela Collection
+
+Aplikasi Inventory Hijabela Collection merupakan aplikasi yang dibuat untuk membantu UMKM Hijabela Collection dalam mengelola persediaan barang secara lebih efektif dan efisien.
 
 ---
 
