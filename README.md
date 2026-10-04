@@ -1,16 +1,5 @@
 Tugas Kelompok Semester 2
 
-## Informasi Projek
-
-- **Tema Projek:** Aplikasi Inventory
-- **Nama Aplikasi:** Aplikasi Inventory Hijabela Collection
-- **Kelompok:** 6
-- **Prodi:** Sistem Informasi
-- **Mata Kuliah:** Pemrograman Lanjutan
-- **Angkatan:** Tahun 2025
-- **IDE:** NetBeans
-- **Bahasa Pemrograman:** Java
-
 ## Tampilan Aplikasi
 
 <p align="center">
@@ -23,6 +12,16 @@ Tugas Kelompok Semester 2
 
 ---
 
+## Informasi Projek
+
+- **Tema Projek:** Aplikasi Inventory
+- **Nama Aplikasi:** Aplikasi Inventory Hijabela Collection
+- **Kelompok:** 6
+- **Prodi:** Sistem Informasi
+- **Mata Kuliah:** Pemrograman Lanjutan
+- **Angkatan:** Tahun 2025
+- **IDE:** NetBeans
+- **Bahasa Pemrograman:** Java
 ## 📖 Deskripsi Projek
 
 Projek ini dibuat untuk memenuhi tugas kelompok Semester 2
