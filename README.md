@@ -1,6 +1,4 @@
---- 
-
-# 🏪 Aplikasi Inventory Hijabela Collection
+## 🏪 Aplikasi Inventory Hijabela Collection
 
 > Aplikasi inventory untuk membantu UMKM Hijabela Collection
 > dalam mengelola persediaan barang.
