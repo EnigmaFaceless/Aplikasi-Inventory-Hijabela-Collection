@@ -30,10 +30,8 @@ Tugas Kelompok Semester 2
 Projek ini dibuat untuk memenuhi tugas kelompok Semester 2
 pada mata kuliah Pemrograman Lanjutan.
 
-Projek ini bertujuan untuk membantu UMKM yang membutuhkan
-aplikasi untuk mendukung kebutuhan pengelolaan usaha di era digital.
-
-Catatan : Detail commit pada tahap awal proses pembuatan aplikasi masih belum lengkap. Hal ini dikarenakan pada saat proses tersebut kami masih berada di Semester 2 dan belum sepenuhnya menguasai penggunaan Git dan GitHub. Seiring berjalannya waktu, kami mulai mempelajari dan memahami penggunaan Git dan GitHub dengan lebih baik pada Semester 3.
+Projek ini bertujuan untuk membantu UMKM Hijabela Collection yang membutuhkan
+aplikasi Inventory untuk mendukung pengelolaan persediaan barang secara efektif dan efisien.
 
 ---
 
