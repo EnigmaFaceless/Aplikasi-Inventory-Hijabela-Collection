@@ -18,6 +18,9 @@ Tugas Kelompok Semester 2
 - **Angkatan:** Tahun 2025
 - **IDE:** NetBeans
 - **Bahasa Pemrograman:** Java
+
+---
+
 ## 📖 Deskripsi Projek
 
 Projek ini dibuat untuk memenuhi tugas kelompok Semester 2
