@@ -12,8 +12,6 @@ Tampilan Fitur Aplikasi Laporan :
 
 ## ✨ INFORMASI PROJEK
 
-Tugas Kelompok Semester 2
-
 
 - **Tema Projek:** Aplikasi Inventory
 - **Nama Aplikasi:** Aplikasi Inventory Hijabela Collection
