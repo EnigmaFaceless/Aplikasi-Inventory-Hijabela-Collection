@@ -121,6 +121,11 @@ Berikut informasi kontribusi setiap anggota kelompok:
 
 **Link GitHub :** https://github.com/raihanchayin36-coder
 
+
+catatan : Informasi tentang kontribusi anggota ini Saya buat dengan sebenar-benarnya tanpa ada pengurangan, pelebihan atau manipulasi data.
+
+-Eka (Enigma Faceless)- 
+
 ---
 
 ## 💻 Teknologi yang Digunakan
