@@ -1,6 +1,6 @@
 ## Tampilan Aplikasi Inventory Hijabela Collection
 
-Tampilan Login :
+Tampilan Fitur Login :
 ![Login](login.png)
 
 Tampilan Fitur Aplikasi Laporan : 
