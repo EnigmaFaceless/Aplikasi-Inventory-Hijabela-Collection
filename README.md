@@ -10,42 +10,27 @@ Tampilan Fitur Aplikasi Laporan :
 
 ---
 
-## ✨ INFORMASI PROJEK
 
+# 🏪 Aplikasi Inventory Hijabela Collection
 
-- **Tema Projek:** Aplikasi Inventory
-- **Nama Aplikasi:** Aplikasi Inventory Hijabela Collection
-- **Hari/Tanggal Rilis:** Kamis, 16 Juli 2026.
+> Aplikasi inventory untuk membantu UMKM Hijabela Collection
+> dalam mengelola persediaan barang.
 
+## ✨ Fitur Utama 
 
-- **Nama Owner UMKM:** Ela
-- **Nama UMKM:** Hijabela Collection 
-- **Bidang Usaha UMKM:** Fashion
-- **Lokasi UMKM:** Desa Jampes, Kecamatan Pace, Kabupaten Nganjuk, Jawa Timur.
-- **Pengembang:** Tim Kelompok 6 Pemrograman Lanjutan
-
-
-- **Mata Kuliah:** Pemrograman Lanjutan
-- **Prodi:** Sistem Informasi
-- **Fakultas:** Sains dan Teknologi 
-- **Kampus:** Institut Teknologi Mojosari, Nganjuk, Jawa Timur.
-- **Angkatan:** Tahun 2025
-- **IDE:** NetBeans
-- **Bahasa Pemrograman:** Java
-
+- Login
+- Dashboard
+- Data Produk
+- Data Supplier
+- Barang Masuk
+- Barang Keluar/Penjualan
+- Laporan Stok
+- Riwayat Barang
+- Profil
+- Logout
 ---
 
-## 📖 DESKRIPSI PROJEK
-
-Projek ini dibuat untuk memenuhi tugas kelompok Semester 2
-pada mata kuliah Pemrograman Lanjutan.
-
-Projek ini bertujuan untuk membantu UMKM Hijabela Collection yang membutuhkan
-aplikasi Inventory untuk mendukung pengelolaan persediaan barang secara efektif dan efisien.
-
----
-
-## 👥 TIM PENGEMBANG
+## 👥 Tim Pengembang
 
 Berikut informasi kontribusi setiap anggota kelompok:
 
