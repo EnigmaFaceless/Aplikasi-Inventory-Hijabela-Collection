@@ -373,6 +373,7 @@ public class PanelForgotPassword extends javax.swing.JPanel {
 
     private void lblUndoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblUndoMouseClicked
         // TODO add your handling code here:
+        new FrameLogin().setVisible(true);
     }//GEN-LAST:event_lblUndoMouseClicked
 
 
