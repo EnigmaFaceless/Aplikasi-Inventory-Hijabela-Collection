@@ -1,4 +1,4 @@
-## Tampilan Aplikasi
+## Tampilan Aplikasi Inventory Hijabela Collection
 
 ![Login](login.png)
 
