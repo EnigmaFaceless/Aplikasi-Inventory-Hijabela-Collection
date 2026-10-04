@@ -1,8 +1,10 @@
 --- 
 
-🏪 Aplikasi Inventory Hijabela Collection
+# 🏪 Aplikasi Inventory Hijabela Collection
 
-Aplikasi Inventory Hijabela Collection merupakan aplikasi yang dibuat untuk membantu UMKM Hijabela Collection dalam mengelola persediaan barang secara lebih efektif dan efisien.
+> Aplikasi inventory untuk membantu UMKM Hijabela Collection
+> dalam mengelola persediaan barang.
+
 
 ---
 
@@ -13,6 +15,18 @@ Projek ini dibuat untuk memenuhi tugas kelompok Semester 2 pada mata kuliah Pemr
 Aplikasi ini dikembangkan untuk membantu proses pengelolaan inventory, mulai dari pencatatan data produk, barang masuk, barang keluar/penjualan, hingga pemantauan stok dan riwayat barang.
 
 ---
+
+🎯 Tujuan Projek
+
+Projek ini bertujuan untuk:
+1. Membantu pengelolaan persediaan barang.
+2. Mempermudah pencatatan barang masuk dan barang keluar.
+3. Membantu pengguna dalam memantau stok barang.
+4. Menyediakan pengelolaan data inventory secara terkomputerisasi.
+5. Menerapkan materi Pemrograman Lanjutan dalam pengembangan aplikasi.
+
+--- 
+
 
 ## ✨ Fitur Utama 
 
@@ -26,6 +40,18 @@ Aplikasi ini dikembangkan untuk membantu proses pengelolaan inventory, mulai dar
 - Riwayat Barang
 - Profil
 - Logout
+
+---
+
+🚀 Cara Menjalankan Aplikasi
+
+1. Clone repository dari GitHub.
+2. Buka projek menggunakan NetBeans.
+3. Jalankan XAMPP.
+4. Aktifkan Apache dan MySQL.
+5. Import database aplikasi ke MySQL.
+6. Sesuaikan konfigurasi koneksi database apabila diperlukan.
+7. Jalankan aplikasi melalui NetBeans.
 
 ---
 
@@ -143,28 +169,20 @@ Berikut informasi kontribusi setiap anggota kelompok:
 
 
 
-🎯 Tujuan Projek
-Projek ini bertujuan untuk:
-Membantu pengelolaan persediaan barang.
-Mempermudah pencatatan barang masuk dan barang keluar.
-Membantu pengguna dalam memantau stok barang.
-Menyediakan pengelolaan data inventory secara terkomputerisasi.
-Menerapkan materi Pemrograman Lanjutan dalam pengembangan aplikasi.
-🚀 Cara Menjalankan Aplikasi
-Clone repository dari GitHub.
-Buka projek menggunakan NetBeans.
-Jalankan XAMPP.
-Aktifkan Apache dan MySQL.
-Import database aplikasi ke MySQL.
-Sesuaikan konfigurasi koneksi database apabila diperlukan.
-Jalankan aplikasi melalui NetBeans.
+
 📚 Mata Kuliah
+
 Projek ini dibuat sebagai tugas kelompok pada:
 Pemrograman Lanjutan — Semester 2
 Program Studi Sistem Informasi
 Institut Teknologi Mojosari
+
+
 📄 License
+
 Projek ini dibuat untuk keperluan pembelajaran dan tugas akademik.
+
+
 📞 Contact
 Untuk informasi lebih lanjut mengenai projek, silakan menghubungi anggota tim pengembang melalui akun GitHub yang tercantum pada bagian Tim Pengembang.
 
