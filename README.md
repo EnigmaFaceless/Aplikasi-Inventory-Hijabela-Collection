@@ -5,7 +5,6 @@
 > Aplikasi inventory untuk membantu UMKM Hijabela Collection
 > dalam mengelola persediaan barang.
 
-
 ---
 
 📖 Deskripsi Projek
@@ -167,21 +166,11 @@ Berikut informasi kontribusi setiap anggota kelompok:
 
 ---
 
-
-
-
-📚 Mata Kuliah
-
-Projek ini dibuat sebagai tugas kelompok pada:
-Pemrograman Lanjutan — Semester 2
-Program Studi Sistem Informasi
-Institut Teknologi Mojosari
-
-
 📄 License
 
 Projek ini dibuat untuk keperluan pembelajaran dan tugas akademik.
 
+---
 
 📞 Contact
 Untuk informasi lebih lanjut mengenai projek, silakan menghubungi anggota tim pengembang melalui akun GitHub yang tercantum pada bagian Tim Pengembang.
