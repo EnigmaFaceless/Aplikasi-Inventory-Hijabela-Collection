@@ -1,6 +1,6 @@
 ## Tampilan Aplikasi
 
-![Login](login.png.png)
+![Login](login.png)
 
 ![Laporan](laporan.png.png)
 
