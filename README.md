@@ -4,36 +4,9 @@ Aplikasi Inventory Hijabela Collection merupakan aplikasi yang dibuat untuk memb
 
 📖 Deskripsi Projek
 Projek ini dibuat untuk memenuhi tugas kelompok Semester 2 pada mata kuliah Pemrograman Lanjutan.
+
 Aplikasi ini dikembangkan untuk membantu proses pengelolaan inventory, mulai dari pencatatan data produk, barang masuk, barang keluar/penjualan, hingga pemantauan stok dan riwayat barang.
 
-
-📋 Informasi Projek
-Informasi
-Detail
-Nama Aplikasi
-Aplikasi Inventory Hijabela Collection
-Tema Projek
-Aplikasi Inventory
-Kelompok
-6
-Prodi
-Sistem Informasi
-Mata Kuliah
-Pemrograman Lanjutan
-Semester
-2 (Genap)
-Angkatan
-2025
-Kampus
-Institut Teknologi Mojosari
-Lokasi
-Nganjuk, Jawa Timur
-IDE
-NetBeans
-Bahasa Pemrograman
-Java
-Database
-MySQL
 
 
 ## ✨ Fitur Utama 
