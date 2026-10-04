@@ -1,15 +1,5 @@
 Tugas Kelompok Semester 2
 
-## Tampilan Aplikasi
-
-<p align="center">
-  <img src="login.png.png" width="700">
-</p>
-
-<p align="center">
-  <img src="laporan.png.png" width="700">
-</p>
-
 ## Informasi Projek
 
 - **Tema Projek:** Aplikasi Inventory
@@ -20,6 +10,16 @@ Tugas Kelompok Semester 2
 - **Angkatan:** Tahun 2025
 - **IDE:** NetBeans
 - **Bahasa Pemrograman:** Java
+
+## Tampilan Aplikasi
+
+<p align="center">
+  <img src="login.png.png" width="700">
+</p>
+
+<p align="center">
+  <img src="laporan.png.png" width="700">
+</p>
 
 ---
 
