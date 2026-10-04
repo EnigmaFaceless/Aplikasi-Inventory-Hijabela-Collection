@@ -9,8 +9,6 @@
 
 Projek ini dibuat untuk memenuhi tugas kelompok Semester 2 pada mata kuliah Pemrograman Lanjutan.
 
-Aplikasi ini dikembangkan untuk membantu proses pengelolaan inventory, mulai dari pencatatan data produk, barang masuk, barang keluar/penjualan, hingga pemantauan stok dan riwayat barang.
-
 ---
 
 🎯 Tujuan Projek
@@ -171,6 +169,8 @@ Projek ini dibuat untuk keperluan pembelajaran dan tugas akademik.
 ---
 
 📞 Contact
+
+
 Untuk informasi lebih lanjut mengenai projek, silakan menghubungi anggota tim pengembang melalui akun GitHub yang tercantum pada bagian Tim Pengembang.
 
 ---
