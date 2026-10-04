@@ -1,5 +1,11 @@
 Tugas Kelompok Semester 2
 
+# Aplikasi Inventory Hijabela Collection
+
+![Tampilan Aplikasi](Screenshot 2026-10-04 093042.png
+
+Screenshot 2026-10-04 093226.png)
+
 ## Informasi Projek
 
 - **Tema Projek:** Aplikasi Inventory
