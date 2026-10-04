@@ -1,16 +1,3 @@
-## Tampilan Aplikasi Inventory Hijabela Collection
-
-Tampilan Fitur Login :
-
-![Login](login.png)
-
-Tampilan Fitur Aplikasi Laporan : 
-
-![Laporan](laporan.png.png)
-
----
-
-
 # 🏪 Aplikasi Inventory Hijabela Collection
 
 > Aplikasi inventory untuk membantu UMKM Hijabela Collection
@@ -28,7 +15,22 @@ Tampilan Fitur Aplikasi Laporan :
 - Riwayat Barang
 - Profil
 - Logout
+
 ---
+
+
+## Tampilan Aplikasi Inventory Hijabela Collection
+
+Tampilan Fitur Login :
+
+![Login](login.png)
+
+Tampilan Fitur Aplikasi Laporan : 
+
+![Laporan](laporan.png.png)
+
+---
+
 
 ## 👥 Tim Pengembang
 
