@@ -25,8 +25,9 @@ Tampilan Fitur Aplikasi Laporan :
 - **Pengembang:** Tim Kelompok 6 Pemrograman Lanjutan
 
 
-- **Prodi:** Sistem Informasi
 - **Mata Kuliah:** Pemrograman Lanjutan
+- **Prodi:** Sistem Informasi
+- **Fakultas:** Sains dan Teknologi 
 - **Kampus:** Institut Teknologi Mojosari, Nganjuk, Jawa Timur.
 - **Angkatan:** Tahun 2025
 - **IDE:** NetBeans
