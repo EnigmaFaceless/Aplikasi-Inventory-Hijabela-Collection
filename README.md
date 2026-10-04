@@ -10,22 +10,29 @@ Tampilan Fitur Aplikasi Laporan :
 
 ---
 
-## Informasi Projek
+## INFORMASI PROJEK
 
 Tugas Kelompok Semester 2
 
+
 - **Tema Projek:** Aplikasi Inventory
 - **Nama Aplikasi:** Aplikasi Inventory Hijabela Collection
-- **Kelompok:** 6
+- **Hari/Tanggal Rilis:** Senin, 16 Juli 2026.
+- **Nama Owner UMKM:** Ela
+- **Nama UMKM:** Hijabela Collection 
+- **Bidang Usaha UMKM:** Fashion
+- **Lokasi UMKM:** Desa Jampes, Kecamatan Pace, Kabupaten Nganjuk, Jawa Timur.
+- **Pengembang:** Tim Kelompok 6 Pemrograman Lanjutan
 - **Prodi:** Sistem Informasi
 - **Mata Kuliah:** Pemrograman Lanjutan
+- **Kampus:** Institut Teknologi Mojosari, Nganjuk, Jawa Timur.
 - **Angkatan:** Tahun 2025
 - **IDE:** NetBeans
 - **Bahasa Pemrograman:** Java
 
 ---
 
-## 📖 Deskripsi Projek
+## 📖 DESKRIPSI PROJEK
 
 Projek ini dibuat untuk memenuhi tugas kelompok Semester 2
 pada mata kuliah Pemrograman Lanjutan.
@@ -35,7 +42,7 @@ aplikasi Inventory untuk mendukung pengelolaan persediaan barang secara efektif 
 
 ---
 
-## 👥 Anggota Kelompok & Pembagian Tugas
+## 👥 TIM PENGEMBANG
 
 Berikut informasi kontribusi setiap anggota kelompok:
 
@@ -131,14 +138,9 @@ Berikut informasi kontribusi setiap anggota kelompok:
 
 **Link GitHub :** https://github.com/raihanchayin36-coder
 
-
-catatan : Informasi tentang kontribusi anggota ini Saya buat dengan sebenar-benarnya tanpa ada pengurangan, pelebihan atau manipulasi data.
-
--Eka (Enigma Faceless)- 
-
 ---
 
-## 💻 Teknologi yang Digunakan
+## 💻 TEKNOLOGI YANG DIGUNAKAN
 
 - **Java**
 - **NetBeans**
