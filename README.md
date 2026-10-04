@@ -18,11 +18,15 @@ Tugas Kelompok Semester 2
 - **Tema Projek:** Aplikasi Inventory
 - **Nama Aplikasi:** Aplikasi Inventory Hijabela Collection
 - **Hari/Tanggal Rilis:** Kamis, 16 Juli 2026.
+
+
 - **Nama Owner UMKM:** Ela
 - **Nama UMKM:** Hijabela Collection 
 - **Bidang Usaha UMKM:** Fashion
 - **Lokasi UMKM:** Desa Jampes, Kecamatan Pace, Kabupaten Nganjuk, Jawa Timur.
 - **Pengembang:** Tim Kelompok 6 Pemrograman Lanjutan
+
+
 - **Prodi:** Sistem Informasi
 - **Mata Kuliah:** Pemrograman Lanjutan
 - **Kampus:** Institut Teknologi Mojosari, Nganjuk, Jawa Timur.
