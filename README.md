@@ -1,10 +1,14 @@
 Tugas Kelompok Semester 2
 
-## Aplikasi Inventory Hijabela Collection
+## Tampilan Aplikasi
 
-![Tampilan Aplikasi](login.png.png
+<p align="center">
+  <img src="login.png.png" width="700">
+</p>
 
-laporan.png.png)
+<p align="center">
+  <img src="laporan.png.png" width="700">
+</p>
 
 ## Informasi Projek
 
