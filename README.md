@@ -10,7 +10,7 @@ Tampilan Fitur Aplikasi Laporan :
 
 ---
 
-## INFORMASI PROJEK
+## ✨ INFORMASI PROJEK
 
 Tugas Kelompok Semester 2
 
