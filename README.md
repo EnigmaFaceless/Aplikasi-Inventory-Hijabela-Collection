@@ -1,7 +1,40 @@
-# 🏪 Aplikasi Inventory Hijabela Collection
+🏪 Aplikasi Inventory Hijabela Collection
+Aplikasi Inventory Hijabela Collection merupakan aplikasi yang dibuat untuk membantu UMKM Hijabela Collection dalam mengelola persediaan barang secara lebih efektif dan efisien.
 
-> Aplikasi inventory untuk membantu UMKM Hijabela Collection
-> dalam mengelola persediaan barang.
+
+📖 Deskripsi Projek
+Projek ini dibuat untuk memenuhi tugas kelompok Semester 2 pada mata kuliah Pemrograman Lanjutan.
+Aplikasi ini dikembangkan untuk membantu proses pengelolaan inventory, mulai dari pencatatan data produk, barang masuk, barang keluar/penjualan, hingga pemantauan stok dan riwayat barang.
+
+
+📋 Informasi Projek
+Informasi
+Detail
+Nama Aplikasi
+Aplikasi Inventory Hijabela Collection
+Tema Projek
+Aplikasi Inventory
+Kelompok
+6
+Prodi
+Sistem Informasi
+Mata Kuliah
+Pemrograman Lanjutan
+Semester
+2 (Genap)
+Angkatan
+2025
+Kampus
+Institut Teknologi Mojosari
+Lokasi
+Nganjuk, Jawa Timur
+IDE
+NetBeans
+Bahasa Pemrograman
+Java
+Database
+MySQL
+
 
 ## ✨ Fitur Utama 
 
@@ -130,6 +163,35 @@ Berikut informasi kontribusi setiap anggota kelompok:
 
 ---
 
+
+
+🎯 Tujuan Projek
+Projek ini bertujuan untuk:
+Membantu pengelolaan persediaan barang.
+Mempermudah pencatatan barang masuk dan barang keluar.
+Membantu pengguna dalam memantau stok barang.
+Menyediakan pengelolaan data inventory secara terkomputerisasi.
+Menerapkan materi Pemrograman Lanjutan dalam pengembangan aplikasi.
+🚀 Cara Menjalankan Aplikasi
+Clone repository dari GitHub.
+Buka projek menggunakan NetBeans.
+Jalankan XAMPP.
+Aktifkan Apache dan MySQL.
+Import database aplikasi ke MySQL.
+Sesuaikan konfigurasi koneksi database apabila diperlukan.
+Jalankan aplikasi melalui NetBeans.
+📚 Mata Kuliah
+Projek ini dibuat sebagai tugas kelompok pada:
+Pemrograman Lanjutan — Semester 2
+Program Studi Sistem Informasi
+Institut Teknologi Mojosari
+📄 License
+Projek ini dibuat untuk keperluan pembelajaran dan tugas akademik.
+📞 Contact
+Untuk informasi lebih lanjut mengenai projek, silakan menghubungi anggota tim pengembang melalui akun GitHub yang tercantum pada bagian Tim Pengembang.
+
+---
+
 ## 💻 TEKNOLOGI YANG DIGUNAKAN
 
 - **Java**
@@ -140,3 +202,5 @@ Berikut informasi kontribusi setiap anggota kelompok:
 - **Draw.io**
 - **Git**
 - **GitHub**
+
+
